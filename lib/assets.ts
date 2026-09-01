@@ -9,4 +9,5 @@ export const ASSETS = {
     ibdLogo: "/images/brands/ibd-logo-main.png",
     motheoLogo: "/images/brands/motheo-logo.png",
   },
+  fusiSignature: "/images/fusi-signature.png",
 } as const;

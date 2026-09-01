@@ -1,9 +1,9 @@
-/** Verbatim proposal copy — pages 1–41 */
+/** Verbatim proposal copy — pages 1–42 */
 
 export const proposalCover = {
   title: "ENTERPRISE COMPLIANCE GATEWAY",
   subtitle: "Electronic Billing System (EBS)",
-  tagline: "SAP ERP & CRM Integration",
+  tagline: "Microsoft Dynamics 365 & CRM Integration",
   preparedFor: "BARLOWORLD EQUIPMENT LS",
   preparedBy: "INFINITY BUSINESS DYNAMICS (PTY) LTD",
   preparedByTagline: "Harnessing the Power of Technology",
@@ -26,13 +26,14 @@ export const executiveLetter = {
     "Infinity Business Dynamics appreciates the opportunity to submit this proposal for the design, supply, implementation and long-term support of an Enterprise Compliance Gateway (Electronic Billing System) for Barloworld Equipment Lesotho.",
     "As Revenue Services Lesotho continues to modernise tax administration through the Lekuka Electronic Billing System, organisations operating complex enterprise environments must ensure that fiscal transactions are processed securely, accurately and in real time while maintaining uninterrupted business operations.",
     "Under the Lekuka mandate, invoices, credit notes, debit notes, receipts and payouts must be submitted to RSL in real time. Returned fiscal signatures and QR codes must appear on every printed customer document.",
-    "For Barloworld Equipment, compliance extends beyond regulatory reporting. The solution must integrate seamlessly with existing SAP ERP and CRM environments, support multiple business processes and provide a resilient architecture capable of supporting future operational growth.",
+    "For Barloworld Equipment, compliance extends beyond regulatory reporting. The solution must integrate seamlessly with existing Microsoft Dynamics 365 ERP and CRM environments, support multiple business processes — including manual invoice capture — and provide a resilient architecture capable of supporting future operational growth.",
     "To address these requirements, Infinity Business Dynamics proposes the Infinity Compliance Gateway, powered by the Motheo Compliance Engine. The solution introduces a dedicated enterprise integration and compliance layer between Barloworld's business systems and the Revenue Services Lesotho Lekuka platform.",
-    "This architecture enables automated fiscal reporting, secure API integration, QR code generation, audit traceability and continuous compliance while preserving existing ERP workflows and operational efficiency.",
-    "Our implementation approach combines enterprise architecture, SAP integration expertise, regulatory compliance and managed support services to deliver a scalable solution that aligns with Barloworld's strategic objectives.",
+    "Our implementation approach combines enterprise architecture, Microsoft Dynamics 365 integration expertise, regulatory compliance and managed support services to deliver a scalable solution that aligns with Barloworld's strategic objectives.",
     "We appreciate the opportunity to participate in this Request for Quotation and look forward to partnering with Barloworld Equipment on this important compliance transformation initiative.",
   ],
   closing: "Yours faithfully,",
+  signatureName: "Fusi Munyolo",
+  signatureRole: "Director",
   signatureOrg: "Infinity Business Dynamics (Pty) Ltd",
   signatureTagline: "Harnessing the Power of Technology",
 } as const;
@@ -60,7 +61,7 @@ export const tableOfContentsSections = [
     entries: [
       { title: "Enterprise Compliance Gateway", page: 11 },
       { title: "Enterprise Architecture", page: 12 },
-      { title: "SAP Integration Architecture", page: 13 },
+      { title: "Dynamics 365 Integration Architecture", page: 13 },
       { title: "CRM Integration", page: 14 },
       { title: "API Integration Framework", page: 15 },
       { title: "Motheo Compliance Engine", page: 16 },
@@ -91,15 +92,16 @@ export const tableOfContentsSections = [
       { title: "Commercial Proposal", page: 35 },
       { title: "Annual Managed Services", page: 35 },
       { title: "Supplier Responses", page: 36 },
-      { title: "Terms & Conditions Acceptance", page: 39 },
-      { title: "Barloworld RFQ Annexures", page: 40 },
-      { title: "Mandatory Supporting Documents (RFQ §2)", page: 41 },
+      { title: "BFR Requirement Traceability", page: 37 },
+      { title: "Terms & Conditions Acceptance", page: 40 },
+      { title: "Barloworld RFQ Annexures", page: 41 },
+      { title: "Mandatory Supporting Documents (RFQ §2)", page: 42 },
     ],
   },
 ] as const;
 
 export const executiveSummaryFlow = {
-  current: ["SAP ERP", "CRM", "Manual Compliance"],
+  current: ["Dynamics 365 ERP", "CRM", "Manual Compliance"],
   future: [
     "Infinity Compliance Gateway",
     "Motheo Compliance Engine",
@@ -157,7 +159,7 @@ export const barloworldBusinessAreas = [
 ] as const;
 
 export const businessChallenges = [
-  "Maintaining uninterrupted SAP ERP operations.",
+  "Maintaining uninterrupted Microsoft Dynamics 365 ERP operations.",
   "Integrating enterprise systems with external regulatory platforms.",
   "Managing digital certificates and secure communications.",
   "Supporting high transaction volumes with minimal latency.",
@@ -177,7 +179,7 @@ export const gatewayCapabilities = [
 export const aboutInfinityIntro = [
   "Infinity Business Dynamics is an enterprise technology company specialising in systems integration, regulatory compliance platforms, digital transformation and managed technology services.",
   "We partner with organisations to modernise business operations through intelligent software solutions that improve efficiency, governance and regulatory compliance.",
-  "Our multidisciplinary team combines expertise in enterprise architecture, SAP integration, API development, compliance automation and project delivery.",
+  "Our multidisciplinary team combines expertise in enterprise architecture, Microsoft Dynamics 365 integration, API development, compliance automation and project delivery.",
 ] as const;
 
 export const companyCredentials = [
@@ -213,9 +215,9 @@ export const coreCapabilities = [
       "Connecting business systems, data flows and compliance platforms across the enterprise landscape.",
   },
   {
-    title: "SAP ERP Integration",
+    title: "Dynamics 365 ERP Integration",
     description:
-      "Specialist SAP ERP connectivity that preserves existing workflows while enabling fiscal compliance.",
+      "Specialist Microsoft Dynamics 365 connectivity that preserves existing workflows while enabling fiscal compliance.",
   },
   {
     title: "Compliance Automation",
@@ -242,6 +244,11 @@ export const coreCapabilities = [
     description:
       "Technology solutions that improve operational efficiency, governance and business visibility.",
   },
+  {
+    title: "Certificate Management",
+    description:
+      "Digital certificate lifecycle management for secure, authenticated communication with Revenue Services Lesotho.",
+  },
 ] as const;
 
 export const whyChooseInfinity = [
@@ -256,9 +263,9 @@ export const whyChooseInfinity = [
       "Proven capability designing secure middleware that connects enterprise systems with external regulatory and compliance platforms.",
   },
   {
-    title: "SAP ERP Integration Expertise",
+    title: "Dynamics 365 ERP Integration Expertise",
     description:
-      "Specialist experience integrating SAP ERP environments with compliance gateways while preserving existing business workflows.",
+      "Specialist experience integrating Microsoft Dynamics 365 environments with compliance gateways while preserving existing business workflows.",
   },
   {
     title: "Secure API Architecture",
@@ -280,19 +287,31 @@ export const whyChooseInfinity = [
     description:
       "A scalable platform designed to adapt to evolving Revenue Services Lesotho and enterprise compliance requirements.",
   },
+  {
+    title: "Proven Implementation Track Record",
+    description:
+      "Structured delivery methodology with clear milestones, governance and successful enterprise compliance implementations.",
+  },
+] as const;
+
+export const whyChooseInfinityProse = [
+  "As Barloworld Equipment scales fiscal compliance across sales, billing and service operations, the selected partner must bridge certified Motheo technology with robust enterprise integration.",
+  "Infinity Business Dynamics brings deep Dynamics 365 experience, local implementation presence and a managed services model designed to keep compliance continuous — not a one-time project.",
+  "Our delivery model spans solution design, integration, testing, training and long-term support — giving Barloworld a single accountable partner from discovery through production operations.",
 ] as const;
 
 export const rslAccreditationIntro = [
   "Infinity Business Dynamics is an accredited provider of Revenue Services Lesotho electronic billing solutions. This accreditation confirms that Infinity is authorised to implement and support Lekuka-compliant fiscal reporting for enterprise organisations operating in Lesotho.",
-  "Our proposed Enterprise Compliance Gateway leverages the certified Motheo Compliance Engine while adding enterprise integration, monitoring, security and orchestration capabilities specifically designed for large organisations. The gateway extends the certified core with the middleware, controls and operational tooling required for a complex SAP ERP and CRM environment.",
+  "Our proposed Enterprise Compliance Gateway leverages the certified Motheo Compliance Engine while adding enterprise integration, monitoring, security and orchestration capabilities specifically designed for large organisations. The gateway extends the certified core with the middleware, controls and operational tooling required for a complex Microsoft Dynamics 365 ERP and CRM environment.",
   "This approach provides Barloworld Equipment with a certified, enterprise-grade solution that reduces implementation risk while supporting long-term operational success. Barloworld gains a proven compliance pathway without disrupting core ERP processes, together with the scalability to accommodate regulatory change and future business growth.",
 ] as const;
 
 export const gatewayIncludes = [
   "Certified Motheo Compliance Engine",
   "Enterprise Integration Layer",
-  "SAP ERP Connectivity",
+  "Dynamics 365 ERP Connectivity",
   "CRM Integration",
+  "Manual Invoice Capture",
   "Secure API Gateway",
   "Monitoring & Analytics",
   "Audit Logging",
@@ -305,7 +324,7 @@ export const rslAccreditationFlowSteps = [
     description: "Barloworld teams initiate invoices and compliance transactions.",
   },
   {
-    title: "SAP ERP & CRM",
+    title: "Dynamics 365 ERP & CRM",
     description: "Core enterprise systems generate qualifying fiscal events.",
   },
   {
@@ -326,17 +345,17 @@ export const rslAccreditationFlow = rslAccreditationFlowSteps.map((step) => step
 
 export const solutionEcosystemFlow = [
   "Barloworld Users",
-  "SAP ERP",
+  "Dynamics 365 ERP",
   "CRM",
   "Infinity Compliance Gateway",
   "Motheo Compliance Engine",
   "Revenue Services Lesotho",
 ] as const;
 
-/** Compact five-step overview — Users → SAP/CRM → gateway → Motheo → RSL */
+/** Compact five-step overview — Users → Dynamics 365/CRM → gateway → Motheo → RSL */
 export const solutionOverviewFlow = [
   "Barloworld Users",
-  "SAP ERP & CRM",
+  "Dynamics 365 ERP & CRM",
   "Infinity Compliance Gateway",
   "Motheo Compliance Engine",
   "Revenue Services Lesotho",
@@ -352,9 +371,9 @@ export const solutionFloatingCards = [
 
 export const solutionComponents = [
   {
-    title: "SAP ERP",
+    title: "Dynamics 365 ERP",
     description:
-      "Financial transactions, billing, customer master data and accounts receivable remain within SAP as the system of record.",
+      "Financial transactions, billing, customer master data and accounts receivable remain within Microsoft Dynamics 365 as the system of record.",
   },
   {
     title: "CRM Platform",
@@ -378,7 +397,7 @@ export const solutionComponents = [
 ] as const;
 
 export const solutionBusinessBenefits = [
-  "No disruption to SAP",
+  "No disruption to Dynamics 365",
   "Enterprise-grade scalability",
   "Centralised compliance",
   "Secure integration",
@@ -412,21 +431,22 @@ export const enterprisePrinciples = [
   { title: "Scalability", description: "Supporting future business growth without architectural redesign." },
   { title: "Compliance", description: "Maintaining alignment with Revenue Services Lesotho regulations." },
   { title: "Auditability", description: "Providing complete transaction traceability." },
+  { title: "Interoperability", description: "Enabling seamless integration across ERP, CRM and external compliance platforms." },
 ] as const;
 
-export const sapIntegrationScope = [
+export const dynamicsIntegrationScope = [
   {
-    title: "SAP ECC6 SD Billing",
-    description: "Sales and distribution billing documents triggered at invoice post.",
+    title: "Dynamics 365 Sales & Billing",
+    description: "Sales orders and billing documents triggered at invoice post.",
     inline: true,
   },
   {
-    title: "FI Accounts Receivable",
-    description: "Financial accounting invoices, credits and adjustments.",
+    title: "Finance & Accounts Receivable",
+    description: "Financial accounting invoices, credits and adjustments within D365 Finance.",
     inline: true,
   },
   {
-    title: "CRM Field Service Billing",
+    title: "Customer Service / Field Service Billing",
     description: "Field service transactions routed through the same compliance path.",
     inline: true,
   },
@@ -441,13 +461,19 @@ export const sapIntegrationScope = [
     inline: true,
   },
   {
-    title: "Print Form Write-back",
-    description: "QR code URL, fiscal signature and receipt counter returned to SmartForms.",
+    title: "Document Write-back",
+    description:
+      "QR code, verification code, device ID, tax data and fiscal data returned to D365 invoice documents.",
+    inline: true,
+  },
+  {
+    title: "Manual Invoice Capture",
+    description: "Standalone manual invoice entry processed through the same compliance workflow.",
     inline: true,
   },
 ] as const;
 
-export const sapIntegrationServices = [
+export const erpIntegrationServices = [
   "Secure API communication",
   "Data transformation",
   "Validation",
@@ -456,33 +482,83 @@ export const sapIntegrationServices = [
   "Retry mechanisms",
 ] as const;
 
-export const sapArchitectureFlow = [
-  "SAP FI",
-  "SAP SD",
+export const dynamicsArchitectureFlow = [
+  "D365 Finance",
+  "D365 Sales",
   "Customer Master",
   "Billing",
-  "SAP APIs",
+  "D365 APIs",
   "Infinity Compliance Gateway",
   "Motheo Engine",
   "Lekuka",
 ] as const;
 
-export const sapSideCards = ["Monitoring", "Audit", "Retry", "Notifications"] as const;
+export const erpSideCards = ["Monitoring", "Audit", "Retry", "Notifications"] as const;
 
 export const crmIntegrationServices = [
-  "Customer Synchronisation",
-  "Billing Events",
-  "Customer Validation",
-  "Sales Transactions",
-  "Invoice Requests",
-  "Service Billing",
+  {
+    title: "Customer Synchronisation",
+    description: "Keep CRM and ERP customer records aligned for accurate fiscal reporting.",
+    inline: true,
+  },
+  {
+    title: "Billing Events",
+    description: "Route CRM-generated billing triggers into the unified compliance pathway.",
+    inline: true,
+  },
+  {
+    title: "Customer Validation",
+    description: "Verify tax and fiscal reference data before regulatory submission.",
+    inline: true,
+  },
+  {
+    title: "Sales Transactions",
+    description: "Capture qualifying sales activity for consistent compliance processing.",
+    inline: true,
+  },
+  {
+    title: "Invoice Requests",
+    description: "Initiate compliant invoice creation directly from CRM workflows.",
+    inline: true,
+  },
+  {
+    title: "Service Billing",
+    description: "Integrate field service and service billing into the same compliance flow.",
+    inline: true,
+  },
 ] as const;
 
 export const crmBenefits = [
-  "Unified reporting",
-  "Consistent customer data",
-  "Reduced duplication",
-  "Improved governance",
+  {
+    title: "Unified reporting",
+    description: "Single compliance view across CRM and ERP transactions.",
+    inline: true,
+  },
+  {
+    title: "Consistent customer data",
+    description: "One authoritative customer profile shared across enterprise systems.",
+    inline: true,
+  },
+  {
+    title: "Reduced duplication",
+    description: "Eliminate re-keying and duplicate fiscal submissions.",
+    inline: true,
+  },
+  {
+    title: "Improved governance",
+    description: "Centralised controls, audit trails and exception handling.",
+    inline: true,
+  },
+  {
+    title: "End-to-end traceability",
+    description: "Full visibility from CRM engagement through to fiscal submission and receipt.",
+    inline: true,
+  },
+  {
+    title: "Faster compliance turnaround",
+    description: "Automated routing reduces manual handoffs between CRM and finance teams.",
+    inline: true,
+  },
 ] as const;
 
 export const crmFlowSteps = [
@@ -495,7 +571,7 @@ export const crmFlowSteps = [
     description: "Routes CRM transactions into the unified compliance pipeline.",
   },
   {
-    title: "SAP",
+    title: "Dynamics 365 ERP",
     description: "Authoritative financial and master data source of record.",
   },
   {
@@ -519,6 +595,11 @@ export const apiServices = [
   {
     title: "Device registration",
     description: "Registers fiscal devices and endpoints authorised to submit to Lekuka.",
+    inline: true,
+  },
+  {
+    title: "Device ID configuration",
+    description: "Configure and manage fiscal device identifiers per submission endpoint.",
     inline: true,
   },
   {
@@ -635,6 +716,7 @@ export const motheoCoreServices = [
   { title: "Audit Logs", description: "Maintains complete transaction history." },
   { title: "Monitoring Engine", description: "Tracks submission status and system health." },
   { title: "Retry Engine", description: "Automatically resubmits failed transactions." },
+  { title: "API Connectivity", description: "Manages secure communication with Revenue Services Lesotho APIs." },
 ] as const;
 
 export const motheoRadialNodes = [
@@ -649,10 +731,26 @@ export const motheoRadialNodes = [
 ] as const;
 
 export const motheoEnterpriseBenefits = [
-  "Certified compliance",
-  "Reliable processing",
-  "Enterprise scalability",
-  "Future regulatory readiness",
+  {
+    title: "Certified compliance",
+    description: "Revenue Services Lesotho accredited fiscal processing meeting current Lekuka requirements.",
+    inline: true,
+  },
+  {
+    title: "Reliable processing",
+    description: "High-availability engine ensuring continuous transaction validation and submission.",
+    inline: true,
+  },
+  {
+    title: "Enterprise scalability",
+    description: "Architecture supporting growth in transaction volumes without redesign.",
+    inline: true,
+  },
+  {
+    title: "Future regulatory readiness",
+    description: "Platform designed to adapt to evolving RSL compliance requirements.",
+    inline: true,
+  },
 ] as const;
 
 export const securityPrinciples = [
@@ -687,7 +785,7 @@ export const securityBadges = ["TLS", "Certificates", "RBAC", "Encryption", "Aud
 export const securityBusinessBenefits = [
   {
     title: "Secure enterprise communications",
-    description: "Encrypted, authenticated channels between SAP, CRM, gateway and RSL.",
+    description: "Encrypted, authenticated channels between Dynamics 365, CRM, gateway and RSL.",
     inline: true,
   },
   {
@@ -713,7 +811,7 @@ export const securityBusinessBenefits = [
 ] as const;
 
 export const transactionLifecycleSteps = [
-  { step: "01", title: "Transaction Created", description: "Invoice, credit note, debit note, receipt or payout generated in SAP SD/FI-AR or CRM." },
+  { step: "01", title: "Transaction Created", description: "Invoice, credit note, debit note, receipt or payout generated in Dynamics 365 Finance/Sales or CRM — or captured manually via the gateway." },
   { step: "02", title: "Validation", description: "Business rules and mandatory fields are validated." },
   { step: "03", title: "Transformation", description: "Transaction converted into the Revenue Services Lesotho API format." },
   { step: "04", title: "Fiscal Processing", description: "Transaction processed through the Motheo Compliance Engine." },
@@ -780,32 +878,156 @@ export const offlineProcessing = [
   },
 ] as const;
 
-export const certificateLifecycle = [
-  "Certificate Request",
-  "Registration",
-  "Validation",
-  "Certificate Issued",
-  "Deployment",
-  "Renewal",
-  "Replacement",
-  "Revocation",
+export const certificateLifecycleItems = [
+  {
+    title: "Certificate Request",
+    description: "Generate and submit a certificate signing request for RSL registration.",
+    inline: true,
+  },
+  {
+    title: "Registration",
+    description: "Register credentials with Revenue Services Lesotho for platform access.",
+    inline: true,
+  },
+  {
+    title: "Validation",
+    description: "Verify identity and organisational details before certificate issuance.",
+    inline: true,
+  },
+  {
+    title: "Certificate Issued",
+    description: "Receive the approved digital certificate for secure communication.",
+    inline: true,
+  },
+  {
+    title: "Deployment",
+    description: "Install and activate the certificate across compliance gateway services.",
+    inline: true,
+  },
+  {
+    title: "Renewal",
+    description: "Renew certificates before expiry to maintain uninterrupted connectivity.",
+    inline: true,
+  },
+  {
+    title: "Replacement",
+    description: "Replace compromised or outdated certificates without service disruption.",
+    inline: true,
+  },
+  {
+    title: "Revocation",
+    description: "Revoke invalid certificates and enforce updated trust credentials.",
+    inline: true,
+  },
 ] as const;
 
+export const certificateLifecycle = certificateLifecycleItems.map((item) => item.title);
+
 export const certificateServices = [
-  "CSR Generation",
-  "Certificate Installation",
-  "Renewal Management",
-  "Expiry Monitoring",
-  "Secure Storage",
-  "Rotation Management",
+  {
+    title: "CSR Generation",
+    description: "Create certificate signing requests aligned to RSL security requirements.",
+    inline: true,
+  },
+  {
+    title: "Certificate Installation",
+    description: "Deploy issued certificates to gateway and integration endpoints.",
+    inline: true,
+  },
+  {
+    title: "Renewal Management",
+    description: "Automate renewal workflows ahead of certificate expiry dates.",
+    inline: true,
+  },
+  {
+    title: "Expiry Monitoring",
+    description: "Proactive alerts before certificates lapse to prevent outages.",
+    inline: true,
+  },
+  {
+    title: "Secure Storage",
+    description: "Protect private keys and credentials in hardened, access-controlled storage.",
+    inline: true,
+  },
+  {
+    title: "Rotation Management",
+    description: "Rotate certificates on schedule without interrupting live transactions.",
+    inline: true,
+  },
+] as const;
+
+export const certificateBusinessBenefits = [
+  {
+    title: "Trusted communications",
+    description: "Authenticated, encrypted exchange with Revenue Services Lesotho.",
+    inline: true,
+  },
+  {
+    title: "Simplified administration",
+    description: "Centralised lifecycle management reduces manual certificate handling.",
+    inline: true,
+  },
+  {
+    title: "Reduced operational risk",
+    description: "Fewer outages and security incidents from expired or misconfigured certificates.",
+    inline: true,
+  },
+  {
+    title: "Continuous compliance",
+    description: "Valid credentials maintained throughout the platform operational lifecycle.",
+    inline: true,
+  },
 ] as const;
 
 export const qrFeatures = [
-  "Automatic generation",
-  "Validation",
-  "Secure encoding",
-  "Invoice integration",
-  "Customer verification",
+  {
+    title: "Automatic generation",
+    description: "QR codes created automatically when fiscal documents are processed.",
+    inline: true,
+  },
+  {
+    title: "Validation",
+    description: "Payload verified against RSL requirements before issuance.",
+    inline: true,
+  },
+  {
+    title: "Secure encoding",
+    description: "Compliant encoding of fiscal data within the QR payload.",
+    inline: true,
+  },
+  {
+    title: "Invoice integration",
+    description: "QR codes embedded directly on Dynamics 365 invoice documents.",
+    inline: true,
+  },
+  {
+    title: "Customer verification",
+    description: "Enables customers to verify transaction authenticity via scan.",
+    inline: true,
+  },
+] as const;
+
+export const qrBusinessBenefits = [
+  {
+    title: "Regulatory compliance",
+    description: "Meets Revenue Services Lesotho QR requirements on every fiscal document.",
+    inline: true,
+  },
+  {
+    title: "Faster processing",
+    description: "Eliminates manual QR creation and reduces invoice turnaround time.",
+    inline: true,
+  },
+  {
+    title: "Improved accuracy",
+    description: "Automated generation removes human error from fiscal encoding.",
+    inline: true,
+  },
+  {
+    title: "Enhanced customer trust",
+    description: "Verifiable QR codes give customers confidence in transaction legitimacy.",
+    inline: true,
+  },
 ] as const;
 
 export const qrCallouts = [
@@ -1052,20 +1274,20 @@ export const reportingBusinessBenefits = [
 export const implementationPhases = [
   {
     phase: "Phase 1 – Discover",
-    summary: "Understand Barloworld's business processes, SAP environment, CRM landscape and compliance requirements.",
-    activities: ["Project Kick-off", "Stakeholder Workshops", "Requirements Gathering", "Infrastructure Assessment", "SAP & CRM Assessment", "Compliance Review"],
+    summary: "Understand Barloworld's business processes, Dynamics 365 environment, CRM landscape and compliance requirements.",
+    activities: ["Project Kick-off", "Stakeholder Workshops", "Requirements Gathering", "Infrastructure Assessment", "Dynamics 365 & CRM Assessment", "Compliance Review"],
     deliverables: ["Project Charter", "Requirements Specification", "Solution Scope", "Risk Register"],
   },
   {
     phase: "Phase 2 – Design",
     summary: "Design the enterprise solution architecture and integration framework.",
-    activities: ["Architecture Design", "API Mapping", "SAP Integration Design", "Security Design", "Compliance Configuration"],
+    activities: ["Architecture Design", "API Mapping", "Dynamics 365 Integration Design", "Security Design", "Compliance Configuration"],
     deliverables: ["Solution Architecture", "Integration Design", "Technical Specification"],
   },
   {
     phase: "Phase 3 – Build",
     summary: "Configure and develop the Compliance Gateway.",
-    activities: ["Gateway Configuration", "API Development", "SAP Integration", "CRM Integration", "Compliance Rules", "Certificate Configuration"],
+    activities: ["Gateway Configuration", "API Development", "Dynamics 365 Integration", "CRM Integration", "Compliance Rules", "Certificate Configuration"],
     deliverables: ["Configured Platform", "Integration Services", "Test Environment"],
   },
   {
@@ -1111,7 +1333,7 @@ export const governanceStructure = [
   {
     title: "Technical Workstream",
     description:
-      "Delivers SAP integration, API orchestration, infrastructure provisioning and security configuration for the Compliance Gateway. Ensures technical readiness, integration testing and performance validation before deployment.",
+      "Delivers Dynamics 365 integration, API orchestration, infrastructure provisioning and security configuration for the Compliance Gateway. Ensures technical readiness, integration testing and performance validation before deployment.",
   },
   {
     title: "Compliance Workstream",
@@ -1138,7 +1360,7 @@ export const projectTeam = [
   ["Executive Sponsor", "Executive oversight and governance"],
   ["Project Manager", "Project planning and delivery"],
   ["Enterprise Solution Architect", "Overall solution architecture"],
-  ["SAP Integration Specialist", "SAP integration and configuration"],
+  ["Dynamics 365 Integration Specialist", "Dynamics 365 integration and configuration"],
   ["API Integration Engineer", "API development and orchestration"],
   ["Compliance Consultant", "Revenue Services Lesotho compliance"],
   ["QA & Test Lead", "Testing and quality assurance"],
@@ -1197,7 +1419,7 @@ export const workstreams = [
     items: [
       {
         title: "Requirements",
-        description: "Capture fiscal, SAP and CRM compliance needs with Barloworld SMEs.",
+        description: "Capture fiscal, Dynamics 365 and CRM compliance needs with Barloworld SMEs.",
         inline: true,
       },
       {
@@ -1216,7 +1438,7 @@ export const workstreams = [
     title: "Technical Workstream",
     items: [
       {
-        title: "SAP Integration",
+        title: "Dynamics 365 Integration",
         description: "Configure ERP triggers, mappings and error handling.",
         inline: true,
       },
@@ -1322,11 +1544,11 @@ export const keyMilestones = [
   },
   {
     title: "Architecture Sign-off",
-    description: "Approved solution design for SAP, CRM, gateway and security integration.",
+    description: "Approved solution design for Dynamics 365, CRM, gateway and security integration.",
     inline: true,
   },
   {
-    title: "SAP Integration Complete",
+    title: "Dynamics 365 Integration Complete",
     description: "ERP connectivity tested with end-to-end fiscal submission flows.",
     inline: true,
   },
@@ -1349,7 +1571,7 @@ export const keyMilestones = [
 
 export const testingActivities = [
   { title: "Unit Testing", description: "Individual components." },
-  { title: "Integration Testing", description: "SAP, CRM and Gateway integration." },
+  { title: "Integration Testing", description: "Dynamics 365, CRM and Gateway integration." },
   { title: "Functional Testing", description: "Business process validation." },
   { title: "Performance Testing", description: "High transaction volumes." },
   { title: "Security Testing", description: "Authentication and encryption validation." },
@@ -1367,7 +1589,7 @@ export const testingPyramid = [
   },
   {
     title: "Integration",
-    description: "Confirms SAP, CRM and Gateway work together end-to-end.",
+    description: "Confirms Dynamics 365, CRM and Gateway work together end-to-end.",
   },
   {
     title: "Unit",
@@ -1395,6 +1617,7 @@ export const learningJourney = ["Awareness", "Training", "Practice", "Confidence
 export const managedServices = [
   { title: "Application Support", description: "Resolution of application-related issues and platform optimisation." },
   { title: "Infrastructure Monitoring", description: "Continuous monitoring of system health, connectivity and performance." },
+  { title: "System Uptime Monitoring", description: "24/7 availability monitoring with alerts for platform, API and submission outages." },
   { title: "Compliance Monitoring", description: "Monitoring of Revenue Services Lesotho transaction submissions, exceptions and reporting status." },
   { title: "Regulatory Updates", description: "Implementation of future Revenue Services Lesotho regulatory changes and compliance updates." },
   { title: "Performance Optimisation", description: "Ongoing tuning and optimisation to maintain system efficiency and reliability." },
@@ -1444,12 +1667,6 @@ export const servicePrinciples = [
     inline: true,
   },
   {
-    title: "Continuous Communication",
-    description:
-      "Regular service reviews, steering updates and proactive notification of material issues.",
-    inline: true,
-  },
-  {
     title: "Customer Success",
     description:
       "Focus on platform availability, compliance continuity and long-term operational outcomes.",
@@ -1458,7 +1675,7 @@ export const servicePrinciples = [
   {
     title: "Proactive Monitoring",
     description:
-      "Continuous platform and compliance monitoring to detect and resolve issues before business impact.",
+      "Continuous platform, API and system uptime monitoring to detect and resolve issues before business impact.",
     inline: true,
   },
   {
@@ -1523,34 +1740,103 @@ export const riskPrinciples = [
 export const riskTreatment = ["Identify", "Assess", "Mitigate", "Monitor", "Close"] as const;
 
 export const implementationServicesIncludes = [
-  "Solution Design",
-  "Enterprise Architecture",
-  "SAP ERP Integration",
-  "CRM Integration",
-  "API Configuration",
-  "Security Configuration",
-  "Testing",
-  "User Training",
-  "Go-Live Support",
+  {
+    title: "Solution Design",
+    description: "End-to-end blueprint for gateway architecture, integrations and compliance flows.",
+    inline: true,
+  },
+  {
+    title: "Enterprise Architecture",
+    description: "Scalable, secure platform design aligned to Barloworld enterprise standards.",
+    inline: true,
+  },
+  {
+    title: "Dynamics 365 ERP Integration",
+    description: "Connectivity for invoices, credits and fiscal fields from D365 Finance.",
+    inline: true,
+  },
+  {
+    title: "CRM Integration",
+    description: "Customer and transaction data routed through the compliance pathway.",
+    inline: true,
+  },
+  {
+    title: "API Configuration",
+    description: "Lekuka API setup, authentication, routing and error handling.",
+    inline: true,
+  },
+  {
+    title: "Security Configuration",
+    description: "TLS, RBAC, encryption and audit controls per enterprise policy.",
+    inline: true,
+  },
+  {
+    title: "Testing",
+    description: "Functional, integration, performance and compliance validation.",
+    inline: true,
+  },
+  {
+    title: "User Training",
+    description: "Structured sessions for finance, IT and compliance teams.",
+    inline: true,
+  },
+  {
+    title: "Go-Live Support",
+    description: "Hypercare and issue resolution during production cutover.",
+    inline: true,
+  },
 ] as const;
+
+export const implementationServicesExplainer =
+  "One-time delivery to design, build, integrate and deploy the Enterprise Compliance Gateway." as const;
 
 export const annualManagedServicesIncludes = [
-  "Application Support",
-  "Compliance Monitoring",
-  "Regulatory Updates",
-  "Performance Optimisation",
-  "Preventative Maintenance",
+  {
+    title: "Application Support",
+    description: "Incident resolution and ongoing platform optimisation.",
+    inline: true,
+  },
+  {
+    title: "Compliance Monitoring",
+    description: "Tracking of submissions, exceptions and reporting status.",
+    inline: true,
+  },
+  {
+    title: "System Uptime Monitoring",
+    description: "24/7 platform and API availability monitoring with proactive alerting.",
+    inline: true,
+  },
+  {
+    title: "Regulatory Updates",
+    description: "Implementation of future Lekuka and regulatory changes.",
+    inline: true,
+  },
+  {
+    title: "Performance Optimisation",
+    description: "Tuning to maintain system efficiency and reliability.",
+    inline: true,
+  },
+  {
+    title: "Preventative Maintenance",
+    description: "Proactive health checks and preventative fixes.",
+    inline: true,
+  },
 ] as const;
 
+export const annualManagedServicesExplainer =
+  "Recurring support to keep the platform compliant, available and continuously optimised." as const;
+
 export const pricingSummary = [
-  ["Year 1 — Licence & Implementation", "ZAR 391,500.00"],
-  ["Year 2 onwards — Annual Maintenance (subscription)", "ZAR 105,225.00 per annum"],
+  ["Integration Fees (one-time)", "LSL 248,934.78"],
+  ["Managed Compliance Service (Year 1)", "LSL 91,500.00"],
+  ["Year 1 Total", "LSL 391,500.00"],
+  ["Year 2 onwards — Annual Managed Compliance Service", "LSL 91,500.00 per annum"],
 ] as const;
 
 export const pricingNotes = [
-  "All amounts quoted in ZAR unless otherwise stated.",
-  "Year 1 fee includes platform licence and full implementation (design, integration, testing, training and go-live).",
-  "Annual maintenance applies from year two onward for application support, compliance monitoring and preventative maintenance.",
+  "All amounts quoted in LSL (Lesotho Loti) unless otherwise stated.",
+  "Year 1 total comprises integration fees and the first year managed compliance service per IBD Estimate EST-000278.",
+  "Annual managed compliance service applies from year two onward for application support, compliance monitoring and preventative maintenance.",
   "Volume assumption: ~400 invoices per month (subject to confirmation with BWE).",
   "Commercials remain valid for 190 business days from RFQ submission date.",
 ] as const;
@@ -1568,9 +1854,46 @@ export {
   submissionPdfMergeOrder,
 } from "@/lib/submission-pack";
 
+export const keyDeliverables = [
+  "Configured Compliance Gateway solution",
+  "API documentation and integration specifications (Annexure B)",
+  "Barloworld Equipment onboarding and configuration setup",
+  "Test evidence including sandbox validation",
+  "Production deployment and go-live support",
+  "Operational support model and Service Level Agreement",
+  "User training documentation",
+] as const;
+
+export const bfrTraceability = [
+  ["SOL-01", "RSL-certified solution", "Accredited Motheo engine + Enterprise Gateway", "10–11"],
+  ["SOL-02", "Lekuka compliance", "Lekuka API integration and document types", "15–16"],
+  ["SOL-03", "Manual invoice capture", "Gateway manual entry workflow", "2, 13"],
+  ["INT-01", "D365 integration", "Dynamics 365 Finance/Sales connectivity", "13"],
+  ["INT-02", "CRM integration", "CRM unified compliance pathway", "14"],
+  ["INT-03", "REST API", "REST/JSON API framework", "15"],
+  ["INT-04", "Transaction types", "Invoices, credits, debits, manual capture", "13, 18"],
+  ["CMP-01", "Real-time submission", "Near real-time fiscalisation and submission", "16, 18"],
+  ["CMP-02", "Compliance response", "QR, verification code, device ID, tax & fiscal data", "13, 20–21"],
+  ["DEV-01", "Device registration", "Fiscal device registration API", "15"],
+  ["DEV-02", "Device ID configuration", "Per-endpoint device identifier setup", "15"],
+  ["DEV-03", "Tax configuration", "Lesotho VAT and fiscal field mapping", "13"],
+  ["MON-01", "Transaction dashboard", "Accepted / Rejected / Pending visibility", "22"],
+  ["MON-02", "Audit trail", "End-to-end submission audit logging", "17, 22–24"],
+  ["MON-03", "Reporting", "Daily transaction and reconciliation reports", "22, 24"],
+  ["RES-01", "Offline queue", "Secure local transaction queue", "19"],
+  ["RES-02", "Auto resubmission", "Retry engine and automatic sync", "19, 23"],
+  ["IMP-01", "Sandbox environment", "Dedicated test environment deliverable", "25, 30"],
+  ["IMP-02", "Integration testing", "End-to-end integration testing support", "30"],
+  ["IMP-03", "Go-live support", "Production deployment and hypercare", "29, 31"],
+  ["SUP-01", "Managed service", "Managed compliance service model", "31–32"],
+  ["SUP-02", "Regulatory updates", "Future Lekuka and regulatory changes", "31"],
+  ["SUP-03", "Uptime monitoring", "24/7 system uptime and API monitoring", "31–32"],
+] as const;
+
 export const supplierResponses = [
   ["Enterprise Compliance Gateway", "Fully Compliant"],
-  ["SAP ERP Integration", "Supported"],
+  ["Dynamics 365 ERP Integration", "Supported"],
+  ["Manual Invoice Capture", "Supported"],
   ["CRM Integration", "Supported"],
   ["Revenue Services Lesotho Integration", "Supported"],
   ["Lekuka Document Types (5)", "Invoices · Credits · Debits · Receipts · Payouts"],
@@ -1591,12 +1914,12 @@ export const whyInfinityClosing = [
   {
     title: "Enterprise Integration Expertise",
     description:
-      "Proven capability connecting SAP ERP, CRM and compliance platforms through secure APIs — enabling automated invoice submission without disrupting existing finance and operations workflows.",
+      "Proven capability connecting Microsoft Dynamics 365 ERP, CRM and compliance platforms through secure APIs — enabling automated invoice submission without disrupting existing finance and operations workflows.",
   },
   {
-    title: "SAP Capability",
+    title: "Dynamics 365 Capability",
     description:
-      "Deep SAP integration experience across finance, distribution and equipment operations — supporting high-volume, multi-entity invoicing within Barloworld's enterprise landscape.",
+      "Deep Microsoft Dynamics 365 integration experience across finance, distribution and equipment operations — supporting high-volume, multi-entity invoicing within Barloworld's enterprise landscape.",
   },
   {
     title: "Managed Services",
@@ -1620,7 +1943,7 @@ export const conclusionBenefits = [
   {
     title: "Enterprise integration",
     description:
-      "Seamless SAP ERP and CRM connectivity — eliminating manual re-keying and duplicate data capture across finance and operations.",
+      "Seamless Dynamics 365 ERP and CRM connectivity — eliminating manual re-keying and duplicate data capture across finance and operations.",
     inline: true,
   },
   {
@@ -1649,8 +1972,11 @@ export const conclusionBenefits = [
   },
 ] as const;
 
-export const closingStatement =
-  "We appreciate the opportunity to participate in this procurement process and look forward to partnering with Barloworld Equipment to deliver a successful implementation." as const;
+export const closingStatementParagraphs = [
+  "We appreciate the opportunity to participate in this procurement process and look forward to partnering with Barloworld Equipment to deliver a successful implementation.",
+  "Infinity Business Dynamics is committed to providing the technical expertise, accredited compliance capability and long-term support required to make this initiative a success for Barloworld Equipment.",
+  "We welcome the opportunity to discuss our proposal in further detail and to work alongside Barloworld Equipment in building a compliant, resilient and future-ready fiscal reporting platform for Lesotho.",
+] as const;
 
 export const closingQuote = "Building Enterprise Compliance Through Intelligent Integration.";
 

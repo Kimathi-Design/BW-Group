@@ -69,7 +69,7 @@ export function DeckVisualPanel({
 }) {
   return (
     <div
-      className={`deck-visual-panel flex min-h-0 flex-1 flex-col overflow-hidden rounded-3xl border border-[color:var(--gms-border)] bg-[color:var(--ibd-gray)] p-6 ${className}`.trim()}
+      className={`deck-visual-panel flex min-h-0 flex-1 flex-col overflow-hidden rounded-3xl border border-[color:var(--gms-border)] bg-[color:var(--ibd-gray)] ${className}`.trim()}
     >
       {children}
     </div>
@@ -521,7 +521,7 @@ export function DeckSectionLabel({ children }: { children: ReactNode }) {
       : "";
 
   return (
-    <p className="deck-title-lg font-semibold">
+    <p className="deck-section-label deck-title-lg font-semibold">
       {labelPrefix}
       {children}
     </p>
@@ -538,6 +538,33 @@ export function DeckVisualPanelLabel({
 }) {
   return (
     <p className={`deck-title-lg shrink-0 font-semibold ${className}`.trim()}>{children}</p>
+  );
+}
+
+/** Shared zone shell — matches Dynamics integration panel UI */
+export function DeckVisualZone({
+  label,
+  children,
+  variant = "tint",
+  className = "",
+}: {
+  label: string;
+  children: ReactNode;
+  variant?: "tint" | "neutral" | "plain";
+  className?: string;
+}) {
+  const variantClass =
+    variant === "tint"
+      ? "deck-visual-zone--tint"
+      : variant === "neutral"
+        ? "deck-visual-zone--neutral"
+        : "";
+
+  return (
+    <div className={`deck-visual-zone flex min-h-0 flex-col ${variantClass} ${className}`.trim()}>
+      <p className="deck-visual-zone-label deck-title-lg shrink-0 font-semibold">{label}</p>
+      {children}
+    </div>
   );
 }
 
@@ -719,17 +746,20 @@ export function DeckOutcomeCardList({
   items,
   icons,
   fill = true,
+  label = "Strategic Outcomes",
 }: {
   items: { title: string; description?: string; subtitle?: string; icon?: ReactNode }[];
   icons?: readonly LucideIcon[];
   fill?: boolean;
+  label?: string;
 }) {
   return (
-    <div
-      className={`deck-outcome-card-list flex flex-col ${
-        fill ? "h-full min-h-0 flex-1 gap-3" : "gap-5"
-      }`}
-    >
+    <DeckVisualZone label={label} variant="tint" className="flex h-full min-h-0 flex-1 flex-col">
+      <div
+        className={`deck-outcome-card-list flex flex-col ${
+          fill ? "h-full min-h-0 flex-1 gap-3" : "gap-5"
+        }`}
+      >
       {items.map((item, index) => (
         <div
           key={item.title}
@@ -758,7 +788,8 @@ export function DeckOutcomeCardList({
           </div>
         </div>
       ))}
-    </div>
+      </div>
+    </DeckVisualZone>
   );
 }
 
@@ -775,12 +806,14 @@ export function DeckFeatureGrid({
   layout = "stack",
   variant = "feature",
   columns = 2,
+  fill = false,
 }: {
   items: { title: string; description?: string; icon?: ReactNode }[];
   uniform?: boolean;
   layout?: "stack" | "inline";
   variant?: "feature" | "premium" | "capability";
   columns?: 1 | 2;
+  fill?: boolean;
 }) {
   const gridClass =
     columns === 1 ? "grid-cols-1" : variant === "premium" ? "deck-premium-card-grid" : "grid-cols-2";
@@ -791,7 +824,9 @@ export function DeckFeatureGrid({
         uniform ? "deck-feature-grid--uniform items-stretch" : ""
       }${layout === "inline" ? " deck-feature-grid--inline" : ""}${
         variant === "premium" ? " deck-why-infinity-grid" : ""
-      }${variant === "capability" ? " deck-feature-grid--capability" : ""}`}
+      }${variant === "capability" ? " deck-feature-grid--capability" : ""}${
+        fill ? " min-h-0 flex-1" : ""
+      }`}
     >
       {items.map((item) =>
         layout === "inline" ? (

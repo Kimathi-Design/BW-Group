@@ -27,9 +27,10 @@ import {
   SupportLifecycleDiagram,
   TestingPyramidDiagram,
   ValueCardsVisual,
-  VerticalFlowDiagram,
   WhyInfinityValueVisual,
   WorkstreamConverge,
+  ApiGatewayGridVisual,
+  ZoneFlowVisual,
 } from "@/components/deck/visuals/ProposalDiagrams";
 import {
   DeckBody,
@@ -41,6 +42,8 @@ import {
   DeckSlideBodySplit,
   DeckTable,
   DeckTitle,
+  DeckVisualPanel,
+  DeckVisualZone,
 } from "@/components/deck/DeckSlideFrame";
 import { CRM_FLOW_ICONS } from "@/components/deck/deck-icons";
 import { SlideEyebrow } from "@/components/deck/SlideEyebrow";
@@ -57,8 +60,10 @@ import {
   barloworldHubUnits,
   businessChallenges,
   certificateLifecycle,
+  certificateLifecycleItems,
   certificateServices,
-  closingStatement,
+  certificateBusinessBenefits,
+  closingStatementParagraphs,
   closingQuote,
   conclusionBenefits,
   coreCapabilities,
@@ -71,7 +76,9 @@ import {
   implementationLifecycle,
   implementationPhases,
   implementationServicesIncludes,
+  implementationServicesExplainer,
   annualManagedServicesIncludes,
+  annualManagedServicesExplainer,
   learningJourney,
   managedServices,
   motheoCoreServices,
@@ -87,6 +94,7 @@ import {
   projectTimeline,
   qrCallouts,
   qrFeatures,
+  qrBusinessBenefits,
   recoveryWorkflow,
   recoveryObjectives,
   resilienceFeatures,
@@ -96,10 +104,10 @@ import {
   riskTreatment,
   rslAccreditationFlowSteps,
   rslAccreditationIntro,
-  sapArchitectureFlow,
-  sapIntegrationScope,
-  sapIntegrationServices,
-  sapSideCards,
+  dynamicsArchitectureFlow,
+  dynamicsIntegrationScope,
+  erpIntegrationServices,
+  erpSideCards,
   servicePrinciples,
   supportChannels,
   solutionComponents,
@@ -107,6 +115,7 @@ import {
   solutionOverviewFlow,
   successFactors,
   supplierResponses,
+  bfrTraceability,
   supportLifecycle,
   testingActivities,
   testingPyramid,
@@ -115,6 +124,7 @@ import {
   transactionLifecycleSteps,
   transactionWorkflow,
   whyChooseInfinity,
+  whyChooseInfinityProse,
   whyInfinityClosing,
   workstreams,
   apiBusinessBenefits,
@@ -167,10 +177,10 @@ function SubmissionAppendixList({
           <div key={app.id} className="deck-appendix-list__item gms-card rounded-2xl">
             <div className="deck-appendix-list__row">
               <div className="deck-appendix-list__content min-w-0 flex-1">
-                <p className="deck-type-premium-label">{app.id}</p>
-                <p className="deck-type-card-title mt-1">{app.title}</p>
+                <p className="deck-appendix-list__id deck-type-premium-label">{app.id}</p>
+                <p className="deck-appendix-list__title deck-type-card-title">{app.title}</p>
                 {app.purpose && (
-                  <p className="deck-type-card-body mt-1.5 text-[color:var(--gms-text-muted)]">
+                  <p className="deck-appendix-list__purpose deck-type-card-body text-[color:var(--gms-text-muted)]">
                     {app.purpose}
                   </p>
                 )}
@@ -179,12 +189,12 @@ function SubmissionAppendixList({
                     href={`/appendices/${app.file}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="deck-appendix-list__link mt-2 inline-flex items-center rounded-full border border-[color:var(--gms-border)] bg-white px-3 py-1 text-[11px] font-medium tracking-[0.12em] text-deck-accent uppercase"
+                    className="deck-appendix-list__link inline-flex items-center rounded-full border border-[color:var(--gms-border)] bg-white px-3 py-1 text-[11px] font-medium tracking-[0.12em] text-deck-accent uppercase"
                   >
                     View attached PDF
                   </a>
                 ) : (
-                  <p className="deck-appendix-list__included mt-2 text-[12px] font-medium text-[color:var(--gms-text-muted)]">
+                  <p className="deck-appendix-list__included text-[12px] font-medium text-[color:var(--gms-text-muted)]">
                     Included in main proposal
                   </p>
                 )}
@@ -290,14 +300,18 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
           <SlideEyebrow index={7} />
           <DeckSlideBodySplit
             visual={
-              <div className="deck-capability-grid flex min-h-0 flex-1 flex-col gap-4">
-                <DeckSectionLabel>Core Capabilities</DeckSectionLabel>
+              <DeckVisualZone
+                label="Core Capabilities"
+                variant="tint"
+                className="deck-capability-grid h-full min-h-0 flex-1"
+              >
                 <DeckFeatureGrid
                   uniform
+                  fill
                   variant="capability"
                   items={mapDeckIcons([...coreCapabilities], CORE_SERVICE_AREA_ICONS)}
                 />
-              </div>
+              </DeckVisualZone>
             }
           >
             <DeckTitle highlight="Harnessing the Power of Technology">
@@ -318,24 +332,39 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
       return (
         <DeckSlideFrame index={8}>
           <SlideEyebrow index={8} />
-          <DeckTitle highlight="Technology Partner for Enterprise Compliance">
-            Your
-          </DeckTitle>
-          <DeckBody>Barloworld Equipment requires more than a software vendor.</DeckBody>
-          <DeckBody>
-            It requires a strategic technology partner capable of designing, implementing and
-            supporting an enterprise compliance platform that integrates seamlessly with
-            existing business systems.
-          </DeckBody>
-          <DeckBody>
-            Infinity Business Dynamics combines accredited compliance technology with enterprise
-            integration expertise to deliver a future-ready solution.
-          </DeckBody>
-          <DeckSectionLabel>Why Choose Infinity</DeckSectionLabel>
-          <DeckFeatureGrid
-            variant="premium"
-            items={mapDeckIcons([...whyChooseInfinity], WHY_INFINITY_CARD_ICONS)}
-          />
+          <DeckSlideBodySplit
+            visual={
+              <DeckVisualZone
+                label="Why Choose Infinity"
+                variant="tint"
+                className="deck-why-infinity-grid-panel h-full min-h-0 flex-1"
+              >
+                <DeckFeatureGrid
+                  uniform
+                  fill
+                  variant="premium"
+                  items={mapDeckIcons([...whyChooseInfinity], WHY_INFINITY_CARD_ICONS)}
+                />
+              </DeckVisualZone>
+            }
+          >
+            <DeckTitle highlight="Technology Partner for Enterprise Compliance">
+              Your
+            </DeckTitle>
+            <DeckBody>Barloworld Equipment requires more than a software vendor.</DeckBody>
+            <DeckBody>
+              It requires a strategic technology partner capable of designing, implementing and
+              supporting an enterprise compliance platform that integrates seamlessly with
+              existing business systems.
+            </DeckBody>
+            <DeckBody>
+              Infinity Business Dynamics combines accredited compliance technology with enterprise
+              integration expertise to deliver a future-ready solution.
+            </DeckBody>
+            {whyChooseInfinityProse.map((paragraph) => (
+              <DeckBody key={paragraph.slice(0, 48)}>{paragraph}</DeckBody>
+            ))}
+          </DeckSlideBodySplit>
         </DeckSlideFrame>
       );
 
@@ -345,11 +374,13 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
           <SlideEyebrow index={9} />
           <DeckSlideBodySplit
             layout="visual-bottom"
+            className="deck-slide-body-split--rsl-accreditation"
+            proseClassName="overflow-y-visible"
             visual={
-              <VerticalFlowDiagram
+              <ZoneFlowVisual
+                label="RSL Accreditation Pathway"
                 items={rslAccreditationFlowSteps}
                 icons={RSL_ACCREDITATION_FLOW_ICONS}
-                compact
                 centerContent
               />
             }
@@ -361,7 +392,7 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
               <DeckBody key={paragraph.slice(0, 48)}>{paragraph}</DeckBody>
             ))}
             <DeckSectionLabel>Enterprise Compliance Gateway Includes</DeckSectionLabel>
-            <DeckBulletList compact items={[...gatewayIncludes]} />
+            <DeckBulletList compact columns={2} items={[...gatewayIncludes]} />
           </DeckSlideBodySplit>
         </DeckSlideFrame>
       );
@@ -372,6 +403,8 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
           <SlideEyebrow index={10} />
           <DeckSlideBodySplit
             layout="visual-bottom"
+            className="deck-slide-body-split--solution-overview"
+            proseClassName="overflow-y-visible"
             visual={
               <SolutionOverviewVisual
                 flow={solutionOverviewFlow}
@@ -388,7 +421,7 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
               applications with the Revenue Services Lesotho Electronic Billing System (Lekuka).
             </DeckBody>
             <DeckBody>
-              Rather than modifying Barloworld Equipment&apos;s core SAP ERP and CRM environments,
+              Rather than modifying Barloworld Equipment&apos;s core Microsoft Dynamics 365 ERP and CRM environments,
               the proposed architecture introduces a dedicated compliance gateway that manages
               all regulatory communication independently while preserving existing business
               processes.
@@ -414,11 +447,28 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
         <DeckSlideFrame index={11}>
           <SlideEyebrow index={11} />
           <DeckSlideBodySplit
+            layout="visual-bottom"
+            className="deck-slide-body-split--architecture"
+            proseClassName="overflow-y-visible"
             visual={
-              <LayeredArchitectureDiagram
-                layers={architectureLayers}
-                icons={ARCHITECTURE_LAYER_ICONS}
-              />
+              <div className="architecture-slide-visual flex h-full min-h-0 flex-1 flex-col gap-3">
+                <DeckVisualZone
+                  label="Enterprise Principles"
+                  variant="tint"
+                  className="architecture-slide-visual__principles shrink-0"
+                >
+                  <DeckFeatureGrid
+                    uniform
+                    items={mapDeckIcons([...enterprisePrinciples], GOVERNANCE_OBJECTIVE_ICONS)}
+                  />
+                </DeckVisualZone>
+                <div className="architecture-slide-visual__layers min-h-0 flex-1">
+                  <LayeredArchitectureDiagram
+                    layers={architectureLayers}
+                    icons={ARCHITECTURE_LAYER_ICONS}
+                  />
+                </div>
+              </div>
             }
           >
             <DeckTitle highlight="Enterprise Integration">Intelligent</DeckTitle>
@@ -434,12 +484,8 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
             <DeckBody>
               The architecture has been designed around five enterprise principles:
             </DeckBody>
-            <DeckFeatureGrid
-              uniform
-              items={mapDeckIcons([...enterprisePrinciples], GOVERNANCE_OBJECTIVE_ICONS)}
-            />
             <DeckSectionLabel>Architecture Principles</DeckSectionLabel>
-            <DeckBulletList items={[...architecturePrinciples]} />
+            <DeckBulletList compact items={[...architecturePrinciples]} />
           </DeckSlideBodySplit>
         </DeckSlideFrame>
       );
@@ -450,36 +496,31 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
           <SlideEyebrow index={12} />
           <DeckSlideBodySplit
             layout="visual-bottom"
+            className="deck-slide-body-split--dynamics-integration"
+            proseClassName="overflow-y-visible"
             visual={
-              <SapIntegrationVisual flow={sapArchitectureFlow} sideCards={sapSideCards} />
+              <SapIntegrationVisual flow={dynamicsArchitectureFlow} sideCards={erpSideCards} />
             }
           >
             <DeckTitle highlight="Integration with Existing Business Processes">
               Seamless
             </DeckTitle>
             <DeckBody>
-              The proposed solution integrates with Barloworld Equipment&apos;s SAP ECC6 environment
-              — covering SD billing, FI accounts receivable and CRM field service — without
-              disrupting existing operational workflows.
+              The proposed solution integrates with Barloworld Equipment&apos;s Microsoft Dynamics 365 environment
+              — covering Sales &amp; Billing, Finance accounts receivable and CRM field service — without
+              disrupting existing operational workflows. Dynamics 365 remains the authoritative source of
+              transactional and financial information while the Compliance Gateway manages regulatory
+              reporting independently.
             </DeckBody>
             <DeckBody>
-              SAP remains the authoritative source of transactional and financial information while
-              the Compliance Gateway manages regulatory reporting activities independently.
+              Every qualifying transaction is automatically validated, fiscalised and submitted to Revenue
+              Services Lesotho without manual intervention — reducing implementation complexity and
+              operational risk.
             </DeckBody>
-            <DeckBody>
-              This approach reduces implementation complexity and minimises operational risk.
-            </DeckBody>
-            <DeckSectionLabel>SAP Integration Scope</DeckSectionLabel>
-            <DeckBulletList compact columns={2} items={[...sapIntegrationScope]} />
+            <DeckSectionLabel>Dynamics 365 Integration Scope</DeckSectionLabel>
+            <DeckBulletList compact columns={2} items={[...dynamicsIntegrationScope]} />
             <DeckSectionLabel>Integration Services</DeckSectionLabel>
-            <DeckBody>The gateway provides:</DeckBody>
-            <DeckBulletList compact columns={2} items={[...sapIntegrationServices]} />
-            <DeckSectionLabel>Expected Outcome</DeckSectionLabel>
-            <DeckBody>
-              Every qualifying transaction generated within SAP is automatically validated,
-              fiscalised and submitted to Revenue Services Lesotho without requiring manual
-              intervention.
-            </DeckBody>
+            <DeckBulletList compact columns={2} items={[...erpIntegrationServices]} />
           </DeckSlideBodySplit>
         </DeckSlideFrame>
       );
@@ -491,14 +532,12 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
           <DeckSlideBodySplit
             layout="visual-bottom"
             visual={
-              <div className="crm-integration-visual flex h-full min-h-0 flex-1 flex-col">
-                <VerticalFlowDiagram
-                  items={crmFlowSteps}
-                  icons={CRM_FLOW_ICONS}
-                  compact
-                  centerContent
-                />
-              </div>
+              <ZoneFlowVisual
+                label="CRM Integration Flow"
+                items={crmFlowSteps}
+                icons={CRM_FLOW_ICONS}
+                centerContent
+              />
             }
           >
             <DeckTitle highlight="Compliance Beyond ERP">Extending</DeckTitle>
@@ -528,14 +567,11 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
           <SlideEyebrow index={14} />
           <DeckSlideBodySplit
             visual={
-              <div className="api-gateway-visual flex h-full min-h-0 flex-1 flex-col">
-                <VerticalFlowDiagram
-                  items={apiGatewayFlow}
-                  icons={API_GATEWAY_FLOW_ICONS}
-                  compact
-                  centerContent
-                />
-              </div>
+              <ApiGatewayGridVisual
+                label="API Gateway Architecture"
+                items={apiGatewayFlow}
+                icons={API_GATEWAY_FLOW_ICONS}
+              />
             }
           >
             <DeckTitle highlight="API Architecture">Enterprise</DeckTitle>
@@ -567,6 +603,9 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
         <DeckSlideFrame index={15}>
           <SlideEyebrow index={15} />
           <DeckSlideBodySplit
+            layout="visual-bottom"
+            className="deck-slide-body-split--motheo"
+            proseClassName="overflow-y-visible"
             visual={<MotheoEngineStripVisual nodes={motheoRadialNodes} />}
           >
             <DeckTitle highlight="Fiscal Processing Platform">Certified</DeckTitle>
@@ -579,13 +618,16 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
               billing while the Infinity Compliance Gateway delivers enterprise integration,
               orchestration and monitoring capabilities.
             </DeckBody>
-            <DeckSectionLabel>Core Services</DeckSectionLabel>
-            <DeckFeatureGrid
-              uniform
-              items={mapDeckIcons([...motheoCoreServices], MOTHEO_COMPONENT_ICONS)}
-            />
+            <DeckVisualPanel className="deck-prose-visual-panel shrink-0">
+              <DeckVisualZone label="Core Services" variant="tint" className="deck-motheo-core-grid">
+                <DeckFeatureGrid
+                  uniform
+                  items={mapDeckIcons([...motheoCoreServices], MOTHEO_COMPONENT_ICONS)}
+                />
+              </DeckVisualZone>
+            </DeckVisualPanel>
             <DeckSectionLabel>Enterprise Benefits</DeckSectionLabel>
-            <DeckBulletList items={[...motheoEnterpriseBenefits]} />
+            <DeckBulletList compact items={[...motheoEnterpriseBenefits]} />
           </DeckSlideBodySplit>
         </DeckSlideFrame>
       );
@@ -607,11 +649,14 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
               solution incorporates appropriate security controls to protect confidentiality,
               integrity and availability.
             </DeckBody>
-            <DeckSectionLabel>Security Principles</DeckSectionLabel>
-            <DeckFeatureGrid
-              uniform
-              items={mapDeckIcons([...securityPrinciples], GOVERNANCE_OBJECTIVE_ICONS)}
-            />
+            <DeckVisualPanel className="deck-prose-visual-panel shrink-0">
+              <DeckVisualZone label="Security Principles" variant="tint" className="deck-security-principles-grid">
+                <DeckFeatureGrid
+                  uniform
+                  items={mapDeckIcons([...securityPrinciples], GOVERNANCE_OBJECTIVE_ICONS)}
+                />
+              </DeckVisualZone>
+            </DeckVisualPanel>
             <DeckSectionLabel>Business Benefits</DeckSectionLabel>
             <DeckBulletList items={[...securityBusinessBenefits]} />
           </DeckSlideBodySplit>
@@ -720,18 +765,11 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
               administrative effort while ensuring secure communication throughout the platform.
             </DeckBody>
             <DeckSectionLabel>Certificate Lifecycle</DeckSectionLabel>
-            <DeckBulletList items={[...certificateLifecycle]} />
+            <DeckBulletList compact items={[...certificateLifecycleItems]} />
             <DeckSectionLabel>Certificate Services</DeckSectionLabel>
-            <DeckBulletList items={[...certificateServices]} />
+            <DeckBulletList compact items={[...certificateServices]} />
             <DeckSectionLabel>Business Benefits</DeckSectionLabel>
-            <DeckBulletList
-              items={[
-                "Trusted communications",
-                "Simplified administration",
-                "Reduced operational risk",
-                "Continuous compliance",
-              ]}
-            />
+            <DeckBulletList compact items={[...certificateBusinessBenefits]} />
           </DeckSlideBodySplit>
         </DeckSlideFrame>
       );
@@ -754,16 +792,9 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
               This ensures consistency, compliance and improved customer confidence.
             </DeckBody>
             <DeckSectionLabel>QR Features</DeckSectionLabel>
-            <DeckBulletList items={[...qrFeatures]} />
+            <DeckBulletList compact items={[...qrFeatures]} />
             <DeckSectionLabel>Business Benefits</DeckSectionLabel>
-            <DeckBulletList
-              items={[
-                "Regulatory compliance",
-                "Faster processing",
-                "Improved accuracy",
-                "Enhanced customer trust",
-              ]}
-            />
+            <DeckBulletList compact items={[...qrBusinessBenefits]} />
           </DeckSlideBodySplit>
         </DeckSlideFrame>
       );
@@ -774,6 +805,7 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
           <SlideEyebrow index={21} />
           <DeckSlideBodySplit
             layout="visual-bottom"
+            className="deck-slide-body-split--dashboard-mockup"
             visual={
               <DashboardMockup modules={dashboardModules} values={dashboardSampleMetrics} />
             }
@@ -801,14 +833,13 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
           <SlideEyebrow index={22} />
           <DeckSlideBodySplit
             visual={
-              <div className="recovery-workflow-visual flex h-full min-h-0 flex-1 flex-col">
-                <VerticalFlowDiagram
-                  items={recoveryWorkflow}
-                  icons={RECOVERY_WORKFLOW_ICONS}
-                  compact
-                  centerContent
-                />
-              </div>
+              <ZoneFlowVisual
+                label="Recovery Workflow"
+                items={recoveryWorkflow}
+                icons={RECOVERY_WORKFLOW_ICONS}
+                centerContent
+                className="recovery-workflow-visual"
+              />
             }
           >
             <DeckTitle highlight="Operational Resilience">Building</DeckTitle>
@@ -836,6 +867,7 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
           <SlideEyebrow index={23} />
           <DeckSlideBodySplit
             layout="visual-bottom"
+            className="deck-slide-body-split--dashboard-mockup"
             visual={<DashboardMockup modules={availableReports} variant="reports" />}
           >
             <DeckTitle highlight="Compliance Data into Business Intelligence">
@@ -872,20 +904,15 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
         <DeckSlideFrame index={24}>
           <SlideEyebrow index={24} />
           <DeckSlideBodySplit
-            layout="horizontal"
+            layout="visual-bottom"
+            className="deck-slide-body-split--implementation-phases"
             visual={<ImplementationPhasesVisual phases={implementationPhases} />}
           >
-            <DeckTitle highlight="Delivery Framework">A Proven</DeckTitle>
             <DeckBody>
-              Infinity Business Dynamics follows a structured implementation methodology designed
-              to minimise project risk, ensure regulatory compliance and deliver a seamless
-              transition into production.
-            </DeckBody>
-            <DeckBody>
-              Our methodology combines enterprise project management principles with systems
-              integration best practices. The approach focuses on minimising disruption while
-              ensuring the Compliance Gateway is fully integrated, tested and accepted before
-              production deployment.
+              Infinity Business Dynamics follows a proven five-phase delivery framework that
+              combines enterprise project management with integration best practices — minimising
+              risk, ensuring regulatory compliance, and transitioning the Compliance Gateway into
+              production without disrupting Barloworld operations.
             </DeckBody>
           </DeckSlideBodySplit>
         </DeckSlideFrame>
@@ -910,12 +937,15 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
               provides executive oversight, project control and clear accountability throughout
               the implementation lifecycle.
             </DeckBody>
-            <DeckSectionLabel>Governance Objectives</DeckSectionLabel>
-            <DeckFeatureGrid
-              uniform
-              columns={1}
-              items={mapDeckIcons([...governanceObjectives], GOVERNANCE_OBJECTIVE_ICONS)}
-            />
+            <DeckVisualPanel className="deck-prose-visual-panel deck-governance-objectives-panel">
+              <DeckVisualZone label="Governance Objectives" variant="tint" className="deck-governance-objectives-grid">
+                <DeckFeatureGrid
+                  uniform
+                  columns={1}
+                  items={mapDeckIcons([...governanceObjectives], GOVERNANCE_OBJECTIVE_ICONS)}
+                />
+              </DeckVisualZone>
+            </DeckVisualPanel>
           </DeckSlideBodySplit>
         </DeckSlideFrame>
       );
@@ -929,7 +959,7 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
           </DeckTitle>
           <DeckBody>
             Infinity Business Dynamics has assembled a multidisciplinary team with expertise in
-            enterprise architecture, SAP integration, regulatory compliance and managed
+            enterprise architecture, Dynamics 365 integration, regulatory compliance and managed
             services.
           </DeckBody>
           <DeckBody>
@@ -1028,8 +1058,11 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
               functionality, integration, performance and regulatory compliance before production
               deployment.
             </DeckBody>
-            <DeckSectionLabel>Testing Activities</DeckSectionLabel>
-            <DeckFeatureGrid items={mapDeckIcons([...testingActivities], TESTING_ACTIVITY_ICONS)} />
+            <DeckVisualPanel className="deck-prose-visual-panel shrink-0">
+              <DeckVisualZone label="Testing Activities" variant="tint" className="deck-testing-activities-grid">
+                <DeckFeatureGrid items={mapDeckIcons([...testingActivities], TESTING_ACTIVITY_ICONS)} />
+              </DeckVisualZone>
+            </DeckVisualPanel>
             <DeckSectionLabel>Expected Outcomes</DeckSectionLabel>
             <DeckBulletList
               items={[
@@ -1059,10 +1092,14 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
               services to ensure that Barloworld personnel are fully prepared to operate and
               support the Enterprise Compliance Gateway.
             </DeckBody>
-            <DeckSectionLabel>Training Audience</DeckSectionLabel>
-            <DeckFeatureGrid
-              items={mapDeckIcons([...trainingAudience], TRAINING_AUDIENCE_ICONS)}
-            />
+            <DeckVisualPanel className="deck-prose-visual-panel shrink-0">
+              <DeckVisualZone label="Training Audience" variant="tint" className="deck-training-audience-grid">
+                <DeckFeatureGrid
+                  uniform
+                  items={mapDeckIcons([...trainingAudience], TRAINING_AUDIENCE_ICONS)}
+                />
+              </DeckVisualZone>
+            </DeckVisualPanel>
             <DeckSectionLabel>Deliverables</DeckSectionLabel>
             <DeckBulletList items={[...trainingDeliverables]} />
             <DeckSectionLabel>Business Benefits</DeckSectionLabel>
@@ -1098,10 +1135,13 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
               Rather than simply responding to incidents, our approach focuses on proactive
               monitoring, preventative maintenance and continuous improvement.
             </DeckBody>
-            <DeckSectionLabel>Managed Services Include</DeckSectionLabel>
-            <DeckFeatureGrid
-              items={mapDeckIcons([...managedServices], SUPPORT_SERVICE_ICONS)}
-            />
+            <DeckVisualPanel className="deck-prose-visual-panel shrink-0">
+              <DeckVisualZone label="Managed Services Include" variant="tint">
+                <DeckFeatureGrid
+                  items={mapDeckIcons([...managedServices], SUPPORT_SERVICE_ICONS)}
+                />
+              </DeckVisualZone>
+            </DeckVisualPanel>
             <DeckSectionLabel>Support Benefits</DeckSectionLabel>
             <DeckBulletList
               items={[
@@ -1178,7 +1218,7 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
 
     case 34:
       return (
-        <DeckSlideFrame index={34}>
+        <DeckSlideFrame index={34} className="deck-slide--investment">
           <SlideEyebrow index={34} />
           <DeckTitle highlight="Summary">Investment</DeckTitle>
           <DeckBody>
@@ -1190,20 +1230,23 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
             ensuring long-term operational sustainability.
           </DeckBody>
           <DeckSectionLabel>Implementation Services</DeckSectionLabel>
-          <DeckBody>Includes</DeckBody>
-          <DeckBulletList items={[...implementationServicesIncludes]} />
+          <DeckBody>{implementationServicesExplainer}</DeckBody>
+          <DeckBulletList compact items={[...implementationServicesIncludes]} />
           <DeckSectionLabel>Annual Managed Services</DeckSectionLabel>
-          <DeckBody>Includes:</DeckBody>
-          <DeckBulletList items={[...annualManagedServicesIncludes]} />
-          <DeckSectionLabel>Pricing Summary</DeckSectionLabel>
-          <DeckTable
-            headers={["Item", "Amount"]}
-            rows={pricingSummary.map((row) => [row[0], row[1]])}
-            compact
-            featured
-          />
+          <DeckBody>{annualManagedServicesExplainer}</DeckBody>
+          <DeckBulletList compact items={[...annualManagedServicesIncludes]} />
+          <DeckVisualPanel className="deck-pricing-summary-panel shrink-0">
+            <DeckVisualZone label="Pricing Summary" variant="tint">
+              <DeckTable
+                headers={["Item", "Amount"]}
+                rows={pricingSummary.map((row) => [row[0], row[1]])}
+                featured
+                emphasizeRowIndex={2}
+              />
+            </DeckVisualZone>
+          </DeckVisualPanel>
           <DeckSectionLabel>Pricing Notes</DeckSectionLabel>
-          <DeckBulletList items={[...pricingNotes]} />
+          <DeckBulletList compact items={[...pricingNotes]} />
         </DeckSlideFrame>
       );
 
@@ -1226,8 +1269,26 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
 
     case 36:
       return (
-        <DeckSlideFrame index={36}>
+        <DeckSlideFrame index={36} className="deck-slide--bfr-traceability">
           <SlideEyebrow index={36} />
+          <DeckTitle highlight="Traceability Matrix">BFR Requirement</DeckTitle>
+          <DeckBody>
+            Each mandatory Business &amp; Technical Requirement (BFR) is mapped to the proposed
+            solution response and supporting proposal evidence.
+          </DeckBody>
+          <div className="deck-bfr-traceability-table min-h-0 flex-1">
+            <DeckTable
+              headers={["ID", "Requirement", "Proposal Response", "Evidence"]}
+              rows={bfrTraceability.map((row) => [...row])}
+            />
+          </div>
+        </DeckSlideFrame>
+      );
+
+    case 37:
+      return (
+        <DeckSlideFrame index={37}>
+          <SlideEyebrow index={37} />
           <DeckSlideBodySplit
             visual={
               <WhyInfinityValueVisual
@@ -1242,7 +1303,7 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
               software.
             </DeckBody>
             <DeckBody>
-              The selected partner must understand enterprise architecture, SAP integration,
+              The selected partner must understand enterprise architecture, Dynamics 365 integration,
               regulatory compliance and long-term operational support.
             </DeckBody>
             <DeckBody>
@@ -1259,10 +1320,10 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
         </DeckSlideFrame>
       );
 
-    case 37:
+    case 38:
       return (
-        <DeckSlideFrame index={37} showParticles>
-          <SlideEyebrow index={37} />
+        <DeckSlideFrame index={38} showParticles>
+          <SlideEyebrow index={38} />
           <DeckTitle highlight="Future-Ready Compliance Platform">
             Building a
           </DeckTitle>
@@ -1278,7 +1339,7 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
             </DeckBody>
             <DeckBody>
               Infinity Business Dynamics proposes a secure, resilient and enterprise-grade
-              solution that integrates seamlessly with SAP ERP, CRM and the Revenue Services
+              solution that integrates seamlessly with Microsoft Dynamics 365 ERP, CRM and the Revenue Services
               Lesotho Electronic Billing System.
             </DeckBody>
             <DeckBody>
@@ -1287,7 +1348,9 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
             </DeckBody>
             <DeckBulletList compact items={[...conclusionBenefits]} />
             <DeckSectionLabel>Closing Statement</DeckSectionLabel>
-            <DeckBody>{closingStatement}</DeckBody>
+            {closingStatementParagraphs.map((paragraph) => (
+              <DeckBody key={paragraph.slice(0, 48)}>{paragraph}</DeckBody>
+            ))}
             <p className="closing-backdrop__quote">{closingQuote}</p>
             <div className="pt-6">
               <IbdContactCard />
@@ -1296,10 +1359,10 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
         </DeckSlideFrame>
       );
 
-    case 38:
+    case 39:
       return (
-        <DeckSlideFrame index={38}>
-          <SlideEyebrow index={38} />
+        <DeckSlideFrame index={39}>
+          <SlideEyebrow index={39} />
           <DeckTitle highlight="of Proposal">Acceptance</DeckTitle>
           <DeckBody>
             The undersigned acknowledge receipt of this proposal and confirm acceptance of its
@@ -1340,10 +1403,10 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
         </DeckSlideFrame>
       );
 
-    case 39:
+    case 40:
       return (
-        <DeckSlideFrame index={39}>
-          <SlideEyebrow index={39} sectionNumber="32.5" />
+        <DeckSlideFrame index={40}>
+          <SlideEyebrow index={40} sectionNumber="32.5" />
           <DeckTitle highlight="Documentation">Supporting</DeckTitle>
           <DeckBody>
             RFQ annexures A–F accompany this proposal. Attached PDFs are included in the
@@ -1353,10 +1416,10 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
         </DeckSlideFrame>
       );
 
-    case 40:
+    case 41:
       return (
-        <DeckSlideFrame index={40}>
-          <SlideEyebrow index={40} sectionNumber="32.6" />
+        <DeckSlideFrame index={41}>
+          <SlideEyebrow index={41} sectionNumber="32.6" />
           <DeckTitle highlight="Documentation">Supporting</DeckTitle>
           <DeckBody>
             Mandatory supporting documents per RFQ §2. All attached PDFs are merged into the

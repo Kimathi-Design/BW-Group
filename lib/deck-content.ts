@@ -3,8 +3,8 @@ export * from "@/lib/deck-proposal-content";
 import { appendices } from "@/lib/deck-proposal-content";
 
 export const APPENDIX_COUNT = 0;
-export const APPENDIX_START_SLIDE = 41;
-export const SLIDE_COUNT = 41;
+export const APPENDIX_START_SLIDE = 42;
+export const SLIDE_COUNT = 42;
 
 /** A4 portrait at ~150 DPI (210mm × 297mm) */
 export const SLIDE_WIDTH = 1240;
@@ -30,7 +30,7 @@ export const slideTitles = [
   "RSL Accreditation & Solution Positioning",
   "Enterprise Compliance Gateway",
   "Enterprise Solution Architecture",
-  "SAP ERP Integration",
+  "Dynamics 365 ERP Integration",
   "CRM Integration",
   "API Integration Framework",
   "Motheo Compliance Engine",
@@ -54,6 +54,7 @@ export const slideTitles = [
   "Risk Management",
   "Commercial Proposal",
   "Supplier Responses",
+  "BFR Requirement Traceability",
   "Why Infinity Business Dynamics",
   "Conclusion",
   "Proposal Acceptance",
@@ -66,7 +67,7 @@ export const coverMeta = {
   subtitle: "Electronic Billing System (EBS)",
   subjectLines: [
     "Compliance Gateway Solution (EBS)",
-    "SAP ERP & CRM Integration",
+    "Microsoft Dynamics 365 & CRM Integration",
   ],
   preparedFor: "BARLOWORLD EQUIPMENT LS",
   preparedForClient: "Barloworld Equipment Lesotho",
@@ -97,7 +98,7 @@ const TOC_TITLE_ALIASES: Record<string, string> = {
   "Why Infinity": "Why Infinity Business Dynamics",
   "Revenue Services Lesotho Accreditation": "RSL Accreditation & Solution Positioning",
   "Enterprise Architecture": "Enterprise Solution Architecture",
-  "SAP Integration Architecture": "SAP ERP Integration",
+  "Dynamics 365 Integration Architecture": "Dynamics 365 ERP Integration",
   "QR Code Framework": "QR Code Management",
   "Monitoring & Reporting": "Compliance Monitoring & Analytics",
   "Business Continuity": "Business Continuity & Disaster Recovery",
@@ -118,7 +119,7 @@ const TOC_ENTRIES = [
   "Revenue Services Lesotho Accreditation",
   "Enterprise Compliance Gateway",
   "Enterprise Architecture",
-  "SAP Integration Architecture",
+  "Dynamics 365 Integration Architecture",
   "CRM Integration",
   "API Integration Framework",
   "Motheo Compliance Engine",
@@ -139,6 +140,7 @@ const TOC_ENTRIES = [
   "Commercial Proposal",
   "Annual Managed Services",
   "Supplier Responses",
+  "BFR Requirement Traceability",
   "Terms & Conditions Acceptance",
   "Barloworld RFQ Annexures",
   "Mandatory Supporting Documents (RFQ §2)",
@@ -174,7 +176,7 @@ export type AppendixItem = (typeof appendices)[number];
 /** Legacy flow export for existing visuals */
 export const solutionArchitectureFlow = [
   "Barloworld Users",
-  "SAP ERP",
+  "Dynamics 365 ERP",
   "CRM",
   "Infinity Compliance Gateway",
   "Motheo Compliance Engine",

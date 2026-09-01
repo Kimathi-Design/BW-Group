@@ -89,7 +89,15 @@ export function DeckSectionedTableOfContents() {
   );
 }
 
-export function DeckSignoffTaglineLogo({ tagline }: { tagline: string }) {
+export function DeckSignoffTaglineLogo({
+  tagline,
+  compact = false,
+  showLogo = true,
+}: {
+  tagline: string;
+  compact?: boolean;
+  showLogo?: boolean;
+}) {
   const textRef = useRef<HTMLSpanElement>(null);
   const [logoWidth, setLogoWidth] = useState<number | null>(null);
 
@@ -115,13 +123,13 @@ export function DeckSignoffTaglineLogo({ tagline }: { tagline: string }) {
       >
         {tagline}
       </span>
-      {logoWidth != null && logoWidth > 0 && (
+      {showLogo && logoWidth != null && logoWidth > 0 && (
         <Image
           src={ASSETS.brands.ibdLogo}
           alt="Infinity Business Dynamics"
           width={2560}
           height={424}
-          className="mt-8 h-auto"
+          className={`h-auto ${compact ? "mt-3" : "mt-8"}`}
           style={{ width: logoWidth }}
         />
       )}

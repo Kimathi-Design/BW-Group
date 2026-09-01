@@ -58,7 +58,7 @@ const SLIDE_ICONS: LucideIcon[] = [
   BadgeCheck, // 9 RSL Accreditation
   Layers, // 10 Enterprise Compliance Gateway
   Network, // 11 Enterprise Solution Architecture
-  Server, // 12 SAP ERP Integration
+  Server, // 12 Dynamics 365 ERP Integration
   Users, // 13 CRM Integration
   Workflow, // 14 API Integration Framework
   Route, // 15 Motheo Compliance Engine

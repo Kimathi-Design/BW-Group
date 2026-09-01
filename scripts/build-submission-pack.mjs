@@ -124,14 +124,15 @@ await writeTextPdf(
   "Infinity Business Dynamics (Pty) Ltd accepts the Barloworld Equipment Standard Terms & Conditions subject to the Clause Deviation Table submitted herewith.\n\nSee also: Consulting-IT Service Agreement draft and signed supplier documentation in the submission zip.\n\nIf no deviations apply, this document confirms acceptance of Annexure E in full.",
 );
 
-const csv = `Line Item,Description,Amount (ZAR),Basis / Notes
-Year 1 — Licence & Implementation,Platform licence and full project delivery — design SAP/CRM integration security testing training and go-live,391500.00,One-time (Year 1)
-Year 2 onwards — Annual Maintenance,Annual subscription / licence — application support compliance monitoring regulatory updates and preventative maintenance,105225.00,Per annum from Year 2
+const csv = `Line Item,Description,Amount (LSL),Basis / Notes
+Integration Fees,Configured Compliance Gateway solution — API documentation onboarding sandbox validation production deployment go-live support SLA and user training documentation,248934.78,One-time
+Managed Compliance Service (Year 1),Full Motheo Compliance Layer deployment — fiscal transaction enablement device management real-time compliance processing RSL submission retry & recovery monitoring reporting support and regulatory updates,91500.00,Year 1 (included in total)
+Year 1 Total,Integration fees plus Year 1 managed compliance service,391500.00,One-time (Year 1)
+Year 2 onwards — Managed Compliance Service,Annual recurring managed compliance service — same scope as Year 1 managed service,91500.00,Per annum from Year 2
 
 Assumptions,,
-Currency,All amounts in ZAR unless otherwise stated,
-Year 1,Includes licence and implementation as a single investment,
-Year 2+,Annual maintenance / subscription fee applies for each subsequent year,
+Currency,All amounts in LSL (Lesotho Loti) unless otherwise stated,
+Reference,IBD Estimate EST-000278 dated 27 Aug 2026,
 Volume baseline,~400 invoices per month (subject to confirmation with BWE),
 Validity,190 business days from RFQ submission date,
 `;
@@ -143,17 +144,25 @@ const pricingBody = `ANNEXURE D: PRICING REQUIREMENTS
 
 Infinity Business Dynamics (Pty) Ltd — Barloworld Equipment Lesotho E-Invoicing Compliance Gateway
 
-All amounts quoted in ZAR. Commercials valid for 190 business days from RFQ submission date.
+All amounts quoted in LSL. Commercials valid for 190 business days from RFQ submission date.
+Reference: IBD Estimate EST-000278 (27 Aug 2026).
 
-Year 1 — Licence & Implementation (one-time): ZAR 391,500.00
-  Includes platform licence and full implementation — design, SAP/CRM integration, testing, training and go-live.
+Integration Fees (one-time): LSL 248,934.78
+  Configured Compliance Gateway, API documentation, onboarding, sandbox validation,
+  production deployment, go-live support, SLA and user training documentation.
 
-Year 2 onwards — Annual Maintenance / Subscription (per annum): ZAR 105,225.00
+Managed Compliance Service (Year 1): LSL 91,500.00
+  Full Motheo Compliance Layer, fiscal processing, device management, RSL submission,
+  retry & recovery, monitoring, reporting, support and regulatory updates.
+
+Year 1 Total: LSL 391,500.00
+
+Year 2 onwards — Annual Managed Compliance Service (per annum): LSL 91,500.00
   Application support, compliance monitoring, regulatory updates and preventative maintenance.
 
 Assumptions:
 • Baseline volume: ~400 invoices per month (subject to confirmation with BWE)
-• Annual maintenance fee applies from year two for the duration of the support agreement
+• Annual managed compliance service fee applies from year two for the duration of the support agreement
 
 See annexure-d-pricing-requirements.csv for structured pricing model.`;
 

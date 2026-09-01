@@ -1,8 +1,9 @@
 "use client";
 
-import { ArrowDown } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 import { deckIcon } from "@/components/deck/deck-icons";
+import { DeckVisualZone } from "@/components/deck/DeckSlideFrame";
 
 type Step = { step?: string; title: string };
 
@@ -149,37 +150,35 @@ export function ArchitectureStackVisual({
   items,
   icons,
   fill = false,
+  label = "Architecture Stack",
 }: {
   items: readonly string[];
   icons?: readonly LucideIcon[];
   fill?: boolean;
+  label?: string;
 }) {
-  if (icons) {
-    return (
-      <div className="deck-architecture-flow flex h-full min-h-0 w-full flex-1 flex-col">
-        {items.map((title, index) => (
-          <div
-            key={title}
-            className="deck-architecture-flow__step flex min-h-0 flex-1 flex-col items-center"
-          >
-            <div className="flex w-full min-h-0 flex-1 items-stretch">
-              <FlowStepCard
-                step={{
-                  step: String(index + 1).padStart(2, "0"),
-                  title,
-                }}
-                Icon={icons[index]}
-                compact
-              />
-            </div>
-            {index < items.length - 1 && <FlowConnector />}
+  const stack = icons ? (
+    <div className="deck-architecture-flow flex h-full min-h-0 w-full flex-1 flex-col">
+      {items.map((title, index) => (
+        <div
+          key={title}
+          className="deck-architecture-flow__step flex min-h-0 flex-1 flex-col items-center"
+        >
+          <div className="flex w-full min-h-0 flex-1 items-stretch">
+            <FlowStepCard
+              step={{
+                step: String(index + 1).padStart(2, "0"),
+                title,
+              }}
+              Icon={icons[index]}
+              compact
+            />
           </div>
-        ))}
-      </div>
-    );
-  }
-
-  return (
+          {index < items.length - 1 && <FlowConnector />}
+        </div>
+      ))}
+    </div>
+  ) : (
     <div
       className={`deck-flow-steps-visual deck-flow-steps-visual--stack h-full min-h-0 w-full flex-1${
         fill ? " deck-flow-steps-visual--fill" : ""
@@ -207,5 +206,11 @@ export function ArchitectureStackVisual({
         </div>
       ))}
     </div>
+  );
+
+  return (
+    <DeckVisualZone label={label} variant="tint" className="flex h-full min-h-0 flex-1 flex-col">
+      {stack}
+    </DeckVisualZone>
   );
 }

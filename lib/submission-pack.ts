@@ -65,7 +65,7 @@ export const submissionSections: readonly SubmissionSection[] = [
         id: "ANNEXURE D",
         title: "Pricing Requirements",
         purpose:
-          "Detailed pricing model — Year 1 licence & implementation (ZAR 391,500) and annual maintenance from year 2 (ZAR 105,225 p.a.).",
+          "Detailed pricing model — Year 1 total (LSL 391,500) comprising integration fees (LSL 248,934.78) and managed compliance service (LSL 91,500); annual managed service from year 2 (LSL 91,500 p.a.).",
         file: "annexure-d-pricing-requirements.pdf",
       },
       {

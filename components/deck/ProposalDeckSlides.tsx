@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { ASSETS } from "@/lib/assets";
 import { DeckCoverFooter } from "@/components/deck/DeckCoverFooter";
 import { DeckCoverTitle } from "@/components/deck/DeckCoverHero";
@@ -93,10 +94,10 @@ import {
   riskPrinciples,
   riskTreatment,
   rslAccreditationFlow,
-  sapArchitectureFlow,
-  sapIntegrationScope,
-  sapIntegrationServices,
-  sapSideCards,
+  dynamicsArchitectureFlow,
+  dynamicsIntegrationScope,
+  erpIntegrationServices,
+  erpSideCards,
   serviceLevels,
   servicePrinciples,
   solutionBusinessBenefits,
@@ -166,38 +167,45 @@ export function renderProposalSlide(index: number) {
         <DeckSlideFrame index={1}>
           <SlideEyebrow index={1} />
           <DeckTitle>Letter of Submission</DeckTitle>
-          <div className="space-y-4">
-            <div className="deck-type-body">
-              <p>
-                <span className="font-medium text-[color:var(--gms-text)]">To:</span>{" "}
-                {executiveLetter.to}
-              </p>
-              <p className="mt-1">{executiveLetter.toOrg}</p>
-              <p>{executiveLetter.toLocation}</p>
+          <div className="deck-executive-letter">
+            <div className="deck-executive-letter__body space-y-3 pr-1">
+              <div className="deck-type-body">
+                <p>
+                  <span className="font-medium text-[color:var(--gms-text)]">To:</span>{" "}
+                  {executiveLetter.to}
+                </p>
+                <p className="mt-1">{executiveLetter.toOrg}</p>
+                <p>{executiveLetter.toLocation}</p>
+              </div>
+              <p className="deck-type-body">{executiveLetter.salutation}</p>
+              {executiveLetter.paragraphs.slice(0, 5).map((paragraph) => (
+                <DeckBody key={paragraph}>{paragraph}</DeckBody>
+              ))}
+              <p className="deck-type-body text-deck-accent">The implementation includes:</p>
+              <DeckBulletList compact items={[...gatewayIncludes]} />
+              {executiveLetter.paragraphs.slice(5).map((paragraph) => (
+                <DeckBody key={paragraph}>{paragraph}</DeckBody>
+              ))}
             </div>
-            <p className="deck-type-body">
-              {executiveLetter.salutation}
-            </p>
-            {executiveLetter.paragraphs.slice(0, 5).map((paragraph) => (
-              <DeckBody key={paragraph}>{paragraph}</DeckBody>
-            ))}
-            <p className="deck-type-body text-deck-accent">The implementation includes:</p>
-            <DeckBulletList compact items={[...gatewayIncludes]} />
-            {executiveLetter.paragraphs.slice(5).map((paragraph) => (
-              <DeckBody key={paragraph}>{paragraph}</DeckBody>
-            ))}
-          </div>
-          <div
-            className="mt-8 shrink-0 border-t border-[color:var(--gms-border)]"
-            aria-hidden
-          />
-          <div className="h-40 shrink-0" aria-hidden />
-          <div className="shrink-0">
-            <DeckBody>{executiveLetter.closing}</DeckBody>
-            <p className="deck-type-body mt-3 font-semibold">
-              {executiveLetter.signatureOrg}
-            </p>
-            <DeckSignoffTaglineLogo tagline={executiveLetter.signatureTagline} />
+            <div className="deck-executive-letter__signoff pt-4">
+              <DeckBody>{executiveLetter.closing}</DeckBody>
+              <p className="deck-type-body mt-2 font-semibold">{executiveLetter.signatureName}</p>
+              <p className="deck-type-body text-[color:var(--gms-text-muted)]">
+                {executiveLetter.signatureRole}
+              </p>
+              <div className="deck-executive-letter__signature-line">
+                <Image
+                  src={ASSETS.fusiSignature}
+                  alt={`${executiveLetter.signatureName} signature`}
+                  width={260}
+                  height={90}
+                  unoptimized
+                  className="deck-executive-letter__signature-img"
+                />
+              </div>
+              <p className="deck-type-body mt-2 font-semibold">{executiveLetter.signatureOrg}</p>
+              <DeckSignoffTaglineLogo compact tagline={executiveLetter.signatureTagline} />
+            </div>
           </div>
         </DeckSlideFrame>
       );
@@ -233,7 +241,7 @@ export function renderProposalSlide(index: number) {
               through the Lekuka platform in accordance with statutory requirements.
             </DeckBody>
             <DeckBody>
-              For Barloworld Equipment, compliance must be achieved without disrupting existing SAP
+              For Barloworld Equipment, compliance must be achieved without disrupting existing Microsoft Dynamics 365
               ERP and CRM business processes.
             </DeckBody>
             <DeckBody>
@@ -250,7 +258,7 @@ export function renderProposalSlide(index: number) {
             <DeckBulletList
               items={[
                 "Automated fiscal reporting",
-                "Seamless SAP ERP and CRM integration",
+                "Seamless Dynamics 365 ERP and CRM integration",
                 "Reduced compliance risk",
                 "Improved operational efficiency",
                 "Enhanced audit readiness",

@@ -312,6 +312,7 @@ export const CORE_SERVICE_AREA_ICONS = [
   Cloud,
   Headphones,
   Lightbulb,
+  FileBadge,
 ] as const;
 
 export const RSL_BWE_BENEFIT_ICONS = [
@@ -580,6 +581,7 @@ export const GOVERNANCE_OBJECTIVE_ICONS = [
   Scale,
   Users,
   Award,
+  Network,
 ] as const;
 
 export const GOVERNANCE_STRUCTURE_ICONS = [
@@ -647,6 +649,7 @@ export const RISK_TREATMENT_ICONS = [
 export const SUPPORT_SERVICE_ICONS = [
   Headphones,
   Eye,
+  Activity,
   Server,
   RefreshCw,
   TrendingUp,
@@ -684,6 +687,7 @@ export const WHY_INFINITY_CARD_ICONS = [
   Handshake,
   Server,
   RefreshCw,
+  Award,
 ] as const;
 
 export const SUPPLIER_RESPONSE_ICONS = [

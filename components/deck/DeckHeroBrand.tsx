@@ -31,7 +31,7 @@ export function DeckHeroBrand({
         MOTHEO COMPLIANCE PLATFORM
       </p>
       <p className={`font-medium text-[color:var(--gms-text-muted)] ${subtitleSize}`}>
-        SAP Integration &amp; Lekuka e-Invoicing Implementation
+        Dynamics 365 Integration &amp; Lekuka e-Invoicing Implementation
       </p>
     </div>
   );
