@@ -1,7 +1,6 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { spawn } from "node:child_process";
-import { tmpdir } from "node:os";
 import { chromium } from "playwright";
 import { PDFDocument } from "pdf-lib";
 
@@ -23,12 +22,16 @@ const submissionPdfMergeOrder = [
   "support-g-supplier-code-of-conduct-signed.pdf",
 ];
 
+const SLIDE_WIDTH = 1240;
+const SLIDE_HEIGHT = 1754;
+const CAPTURE_SCALE = 2;
+
 const outputPath = join(process.cwd(), "public/BW-Group-Motheo-Proposal.pdf");
 const port = Number(process.env.DECK_PORT ?? 3010);
 const baseUrl = process.env.DECK_URL ?? `http://localhost:${port}`;
 const printUrl = `${baseUrl.replace(/\/$/, "")}/print`;
 
-async function waitForServer(url, timeoutMs = 60_000) {
+async function waitForServer(url, timeoutMs = 120_000) {
   const start = Date.now();
   while (Date.now() - start < timeoutMs) {
     try {
@@ -53,25 +56,46 @@ if (!process.env.DECK_URL) {
 }
 
 const browser = await chromium.launch();
-const page = await browser.newPage();
+const context = await browser.newContext({
+  deviceScaleFactor: CAPTURE_SCALE,
+  viewport: { width: SLIDE_WIDTH, height: SLIDE_HEIGHT },
+});
+const page = await context.newPage();
 
 try {
-  console.log(`Rendering slides from ${printUrl}...`);
-  await page.goto(printUrl, { waitUntil: "networkidle", timeout: 120_000 });
+  console.log(`Rendering slides from ${printUrl} at ${CAPTURE_SCALE}x...`);
+  await page.goto(printUrl, { waitUntil: "networkidle", timeout: 180_000 });
+  await page.waitForFunction(() => document.documentElement.dataset.deckExport === "true");
   await page.waitForFunction(() => document.fonts.ready);
-  await page.waitForTimeout(1500);
+  await page.waitForSelector(".deck-print-slide", { timeout: 60_000 });
+  await page.waitForTimeout(2000);
 
-  const slidesPath = join(tmpdir(), "bwe-proposal-slides.pdf");
-  await page.emulateMedia({ media: "print" });
-  await page.pdf({
-    path: slidesPath,
-    printBackground: true,
-    preferCSSPageSize: true,
-    margin: { top: 0, right: 0, bottom: 0, left: 0 },
-  });
+  const slideLocator = page.locator(".deck-print-slide");
+  const slideCount = await slideLocator.count();
+  console.log(`Capturing ${slideCount} slides...`);
+
+  const pdfDoc = await PDFDocument.create();
+
+  for (let index = 0; index < slideCount; index++) {
+    const slide = slideLocator.nth(index);
+    await slide.scrollIntoViewIfNeeded();
+    const pngBytes = await slide.screenshot({
+      type: "png",
+      animations: "disabled",
+      caret: "hide",
+    });
+    const image = await pdfDoc.embedPng(pngBytes);
+    const pdfPage = pdfDoc.addPage([SLIDE_WIDTH, SLIDE_HEIGHT]);
+    pdfPage.drawImage(image, {
+      x: 0,
+      y: 0,
+      width: SLIDE_WIDTH,
+      height: SLIDE_HEIGHT,
+    });
+    console.log(`  slide ${index + 1}/${slideCount}`);
+  }
 
   console.log("Merging submission pack PDFs...");
-  const pdfDoc = await PDFDocument.load(readFileSync(slidesPath));
   const appendicesDir = join(process.cwd(), "public/appendices");
 
   for (const file of submissionPdfMergeOrder) {
@@ -90,6 +114,7 @@ try {
   writeFileSync(outputPath, await pdfDoc.save());
   console.log(`Saved ${outputPath}`);
 } finally {
+  await context.close();
   await browser.close();
   if (serverProcess) {
     serverProcess.kill("SIGTERM");

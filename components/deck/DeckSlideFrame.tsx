@@ -183,16 +183,19 @@ export function DeckSlideFrame({
         ) : (
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-0"
+            className="deck-slide-fx pointer-events-none absolute inset-0"
             style={{
               background:
                 "linear-gradient(165deg, #ffffff 0%, #f5f7fb 52%, #ffffff 100%)",
             }}
           />
         )}
-        {!backgroundImage && <GlowOrbs />}
+        {!backgroundImage && <GlowOrbs className="deck-slide-fx" />}
         {showParticles && !backgroundImage && (
-          <Particles density={0.00002} className="absolute inset-0 opacity-25" />
+          <Particles
+            density={0.00002}
+            className="deck-slide-fx absolute inset-0 opacity-25"
+          />
         )}
 
         <div

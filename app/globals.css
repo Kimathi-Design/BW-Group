@@ -5355,6 +5355,52 @@ html:not(.light) {
 .deck-fixed-layout .sm\:text-\[26px\] {
   font-size: 26px;
 }
+/* Crisp PDF / print export — flat cards, no shadow bleed at edges */
+html[data-deck-export="true"] {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+html[data-deck-export="true"] .deck-slide-fx,
+html[data-deck-export="true"] .deck-stage.shadow-\[0_24px_80px_-20px_rgba\(13\,15\,26\,0\.18\)\] {
+  box-shadow: none !important;
+}
+html[data-deck-export="true"] .deck-slide-fx {
+  display: none !important;
+}
+html[data-deck-export="true"] .deck-slide,
+html[data-deck-export="true"] .deck-stage,
+html[data-deck-export="true"] .deck-visual-panel,
+html[data-deck-export="true"] .gms-card,
+html[data-deck-export="true"] .deck-flow-step-card,
+html[data-deck-export="true"] .deck-feature-card,
+html[data-deck-export="true"] .deck-outcome-card,
+html[data-deck-export="true"] .deck-table--featured,
+html[data-deck-export="true"] .deck-visual-zone,
+html[data-deck-export="true"] .dynamics-integration-visual__compliance-step--emphasis {
+  box-shadow: none !important;
+  filter: none !important;
+}
+html[data-deck-export="true"] .gms-card,
+html[data-deck-export="true"] .deck-flow-step-card,
+html[data-deck-export="true"] .deck-feature-card,
+html[data-deck-export="true"] .deck-outcome-card,
+html[data-deck-export="true"] .deck-visual-panel,
+html[data-deck-export="true"] .deck-visual-zone {
+  border: 1px solid var(--gms-border) !important;
+  background: #ffffff !important;
+}
+html[data-deck-export="true"] .deck-visual-zone--tint {
+  background: linear-gradient(135deg, rgb(0 91 170 / 0.05) 0%, #ffffff 100%) !important;
+  border-color: rgb(0 91 170 / 0.16) !important;
+}
+html[data-deck-export="true"] .deck-slide {
+  border: none !important;
+}
+html[data-deck-export="true"] .backdrop-blur,
+html[data-deck-export="true"] .backdrop-blur-xl {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
 .deck-print-root {
   background: #ffffff;
 }
@@ -5364,6 +5410,7 @@ html:not(.light) {
   overflow: hidden;
   page-break-after: always;
   break-after: page;
+  box-shadow: none !important;
 }
 @page {
   size: 1240px 1754px;

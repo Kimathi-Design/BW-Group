@@ -107,17 +107,21 @@ export async function exportDeckToPdf({
     const dataUrl = await toJpeg(el, {
       width,
       height,
-      quality: 0.92,
-      pixelRatio: 1,
+      quality: 0.98,
+      pixelRatio: 2,
       cacheBust: true,
+      style: {
+        boxShadow: "none",
+        filter: "none",
+      },
     });
 
     if (!dataUrl) {
       throw new Error(`Failed to capture slide ${i + 1}`);
     }
 
-    const jpgBytes = await fetch(dataUrl).then((response) => response.arrayBuffer());
-    const image = await pdfDoc.embedJpg(jpgBytes);
+    const imgBytes = await fetch(dataUrl).then((response) => response.arrayBuffer());
+    const image = await pdfDoc.embedJpg(imgBytes);
     const page = pdfDoc.addPage([width, height]);
     page.drawImage(image, { x: 0, y: 0, width, height });
   }
