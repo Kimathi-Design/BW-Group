@@ -82,7 +82,7 @@ export const coverMeta = {
   website: "www.ibd.co.ls",
   location: "Maseru, Lesotho",
   tin: "200116903-2",
-  date: "29th of June 2026",
+  date: "2nd of September 2026",
   reference: "IBD-BWE-EBS-2026-001",
   accreditation: "Revenue Services Lesotho Accredited Solution Provider",
   primaryContactName: "Fusi Monyolo",

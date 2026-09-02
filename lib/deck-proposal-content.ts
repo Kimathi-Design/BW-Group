@@ -12,7 +12,7 @@ export const proposalCover = {
   website: "www.ibd.co.ls",
   email: "services@ibd.co.ls",
   phone: "+266 62554433",
-  date: "29th of June 2026",
+  date: "2nd of September 2026",
   reference: "IBD-BWE-EBS-2026-001",
   accreditation: "Revenue Services Lesotho Accredited Solution Provider",
 } as const;
