@@ -28,7 +28,6 @@ import {
   SupportLifecycleDiagram,
   TestingPyramidDiagram,
   ValueCardsVisual,
-  WhyInfinityValueVisual,
   WorkstreamConverge,
   ApiGatewayGridVisual,
   ZoneFlowVisual,
@@ -37,7 +36,6 @@ import {
   DeckBody,
   DeckBulletList,
   DeckFeatureGrid,
-  DeckOutcomeCardList,
   DeckSectionLabel,
   DeckSlideFrame,
   DeckSlideBodySplit,
@@ -74,16 +72,13 @@ import {
   enterprisePrinciples,
   gatewayCapabilities,
   gatewayIncludes,
-  implementationLifecycle,
   implementationPhases,
   keyDeliverablesDetailed,
   keyDeliverablesIntro,
   bfrAcceptanceEvidence,
   acceptanceEvidenceIntro,
-  acceptanceEvidenceApproach,
-  acceptanceEvidencePrinciples,
   acceptanceEvidencePackIncludes,
-  acceptanceEvidenceSignOff,
+  manualCaptureSummary,
   implementationServicesIncludes,
   implementationServicesExplainer,
   annualManagedServicesIncludes,
@@ -134,7 +129,6 @@ import {
   transactionWorkflow,
   whyChooseInfinity,
   whyChooseInfinityProse,
-  whyInfinityClosing,
   workstreams,
   apiBusinessBenefits,
   apiFeatures,
@@ -167,7 +161,6 @@ import {
   TESTING_ACTIVITY_ICONS,
   TRAINING_AUDIENCE_ICONS,
   WHY_INFINITY_CARD_ICONS,
-  WHY_INFINITY_VALUE_ICONS,
   DeckIconTile,
   deckIcon,
   mapDeckIcons,
@@ -227,7 +220,7 @@ function SubmissionAppendixList({
 
 export function renderProposalSlidesExtended(index: number): ReactElement {
   switch (index) {
-    case 5:
+case 5:
       return (
         <DeckSlideFrame index={5}>
           <SlideEyebrow index={5} />
@@ -268,8 +261,7 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
           </DeckSlideBodySplit>
         </DeckSlideFrame>
       );
-
-    case 6:
+case 6:
       return (
         <DeckSlideFrame index={6}>
           <SlideEyebrow index={6} />
@@ -303,8 +295,7 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
           </DeckSlideBodySplit>
         </DeckSlideFrame>
       );
-
-    case 7:
+case 7:
       return (
         <DeckSlideFrame index={7}>
           <SlideEyebrow index={7} />
@@ -337,8 +328,7 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
           </DeckSlideBodySplit>
         </DeckSlideFrame>
       );
-
-    case 8:
+case 8:
       return (
         <DeckSlideFrame index={8}>
           <SlideEyebrow index={8} />
@@ -377,8 +367,7 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
           </DeckSlideBodySplit>
         </DeckSlideFrame>
       );
-
-    case 9:
+case 9:
       return (
         <DeckSlideFrame index={9}>
           <SlideEyebrow index={9} />
@@ -406,8 +395,7 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
           </DeckSlideBodySplit>
         </DeckSlideFrame>
       );
-
-    case 10:
+case 10:
       return (
         <DeckSlideFrame index={10}>
           <SlideEyebrow index={10} />
@@ -451,8 +439,7 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
           </DeckSlideBodySplit>
         </DeckSlideFrame>
       );
-
-    case 11:
+case 11:
       return (
         <DeckSlideFrame index={11}>
           <SlideEyebrow index={11} />
@@ -499,15 +486,13 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
           </DeckSlideBodySplit>
         </DeckSlideFrame>
       );
-
-    case 12:
+case 12:
       return (
         <DeckSlideFrame index={12}>
           <SlideEyebrow index={12} />
           <DeckSlideBodySplit
             layout="visual-bottom"
             className="deck-slide-body-split--dynamics-integration"
-            proseClassName="overflow-y-visible"
             visual={
               <SapIntegrationVisual flow={dynamicsArchitectureFlow} sideCards={erpSideCards} />
             }
@@ -516,26 +501,22 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
               Seamless
             </DeckTitle>
             <DeckBody>
-              The proposed solution integrates with Barloworld Equipment&apos;s Microsoft Dynamics 365 environment
-              covering Sales &amp; Billing, Finance accounts receivable and CRM field service without
-              disrupting existing operational workflows. Dynamics 365 remains the authoritative source of
-              transactional and financial information while the Compliance Gateway manages regulatory
-              reporting independently.
-            </DeckBody>
-            <DeckBody>
-              Every qualifying transaction is automatically validated, fiscalised and submitted to Revenue
-              Services Lesotho without manual intervention, reducing implementation complexity and
-              operational risk.
+              The proposed solution integrates with Barloworld Equipment&apos;s Microsoft Dynamics 365
+              environment — Sales &amp; Billing, Finance accounts receivable and CRM field service — without
+              disrupting existing workflows. Dynamics 365 remains the system of record while the Compliance
+              Gateway validates, fiscalises and submits qualifying transactions to Revenue Services Lesotho
+              automatically, reducing implementation complexity and operational risk.
             </DeckBody>
             <DeckSectionLabel>Dynamics 365 Integration Scope</DeckSectionLabel>
             <DeckBulletList compact columns={2} items={[...dynamicsIntegrationScope]} />
+            <DeckSectionLabel>Manual Invoice Capture</DeckSectionLabel>
+            <DeckBulletList compact items={[...manualCaptureSummary]} />
             <DeckSectionLabel>Integration Services</DeckSectionLabel>
             <DeckBulletList compact columns={2} items={[...erpIntegrationServices]} />
           </DeckSlideBodySplit>
         </DeckSlideFrame>
       );
-
-    case 13:
+case 13:
       return (
         <DeckSlideFrame index={13}>
           <SlideEyebrow index={13} />
@@ -570,8 +551,7 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
           </DeckSlideBodySplit>
         </DeckSlideFrame>
       );
-
-    case 14:
+case 14:
       return (
         <DeckSlideFrame index={14}>
           <SlideEyebrow index={14} />
@@ -607,8 +587,7 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
           </DeckSlideBodySplit>
         </DeckSlideFrame>
       );
-
-    case 15:
+case 15:
       return (
         <DeckSlideFrame index={15}>
           <SlideEyebrow index={15} />
@@ -641,8 +620,7 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
           </DeckSlideBodySplit>
         </DeckSlideFrame>
       );
-
-    case 16:
+case 16:
       return (
         <DeckSlideFrame index={16}>
           <SlideEyebrow index={16} />
@@ -672,8 +650,7 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
           </DeckSlideBodySplit>
         </DeckSlideFrame>
       );
-
-    case 17:
+case 17:
       return (
         <DeckSlideFrame index={17}>
           <SlideEyebrow index={17} />
@@ -711,8 +688,7 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
           </DeckSlideBodySplit>
         </DeckSlideFrame>
       );
-
-    case 18:
+case 18:
       return (
         <DeckSlideFrame index={18}>
           <SlideEyebrow index={18} />
@@ -757,8 +733,7 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
           </DeckSlideBodySplit>
         </DeckSlideFrame>
       );
-
-    case 19:
+case 19:
       return (
         <DeckSlideFrame index={19}>
           <SlideEyebrow index={19} />
@@ -783,8 +758,7 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
           </DeckSlideBodySplit>
         </DeckSlideFrame>
       );
-
-    case 20:
+case 20:
       return (
         <DeckSlideFrame index={20}>
           <SlideEyebrow index={20} />
@@ -808,36 +782,33 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
           </DeckSlideBodySplit>
         </DeckSlideFrame>
       );
-
-    case 21:
+case 21:
       return (
         <DeckSlideFrame index={21}>
           <SlideEyebrow index={21} />
           <DeckSlideBodySplit
             layout="visual-bottom"
-            className="deck-slide-body-split--dashboard-mockup"
+            className="deck-slide-body-split--dashboard-mockup deck-slide-body-split--monitoring-analytics"
             visual={
               <DashboardMockup modules={dashboardModules} values={dashboardSampleMetrics} />
             }
           >
-            <DeckTitle highlight="Operational Visibility">Real-Time</DeckTitle>
+            <DeckTitle highlight="Reporting & Analytics">Monitoring,</DeckTitle>
             <DeckBody>
-              The Infinity Compliance Gateway provides operational dashboards that enable
-              finance, compliance and IT teams to monitor transaction processing in real time.
-            </DeckBody>
-            <DeckBody>
-              Dashboards provide visibility into submission status, processing performance and
-              operational health.
+              The Infinity Compliance Gateway provides real-time operational dashboards and compliance
+              analytics for finance, compliance and IT teams — monitoring submission status, processing
+              performance, exception trends and system health.
             </DeckBody>
             <DeckSectionLabel>Dashboard Modules</DeckSectionLabel>
             <DeckBulletList compact items={[...dashboardModules]} />
-            <DeckSectionLabel>Benefits</DeckSectionLabel>
-            <DeckBulletList compact items={[...dashboardBenefits]} />
+            <DeckSectionLabel>Available Reports</DeckSectionLabel>
+            <DeckBulletList compact items={[...availableReports]} />
+            <DeckSectionLabel>Business Benefits</DeckSectionLabel>
+            <DeckBulletList compact items={[...dashboardBenefits, ...reportingBusinessBenefits]} />
           </DeckSlideBodySplit>
         </DeckSlideFrame>
       );
-
-    case 22:
+case 22:
       return (
         <DeckSlideFrame index={22}>
           <SlideEyebrow index={22} />
@@ -870,49 +841,10 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
           </DeckSlideBodySplit>
         </DeckSlideFrame>
       );
-
-    case 23:
+case 23:
       return (
         <DeckSlideFrame index={23}>
           <SlideEyebrow index={23} />
-          <DeckSlideBodySplit
-            layout="visual-bottom"
-            className="deck-slide-body-split--dashboard-mockup"
-            visual={<DashboardMockup modules={availableReports} variant="reports" />}
-          >
-            <DeckTitle highlight="Compliance Data into Business Intelligence">
-              Turning
-            </DeckTitle>
-            <DeckBody>
-              Beyond regulatory reporting, the Infinity Compliance Gateway provides rich
-              operational and compliance analytics that support better decision-making across
-              finance, compliance and IT.
-            </DeckBody>
-            <DeckBody>
-              Dashboards and reports provide insights into transaction volumes, reporting
-              performance, exception trends and system health.
-            </DeckBody>
-            <DeckSectionLabel>Available Reports</DeckSectionLabel>
-            <DeckBulletList compact items={[...availableReports]} />
-            <DeckSectionLabel>Executive Insights</DeckSectionLabel>
-            <DeckBody>
-              Management gains visibility into compliance performance through interactive
-              dashboards and scheduled reports.
-            </DeckBody>
-            <DeckBody>
-              These insights support governance, operational planning and continuous improvement
-              initiatives.
-            </DeckBody>
-            <DeckSectionLabel>Business Benefits</DeckSectionLabel>
-            <DeckBulletList compact items={[...reportingBusinessBenefits]} />
-          </DeckSlideBodySplit>
-        </DeckSlideFrame>
-      );
-
-    case 24:
-      return (
-        <DeckSlideFrame index={24}>
-          <SlideEyebrow index={24} />
           <DeckSlideBodySplit
             layout="visual-bottom"
             className="deck-slide-body-split--implementation-phases"
@@ -927,12 +859,10 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
           </DeckSlideBodySplit>
         </DeckSlideFrame>
       );
-
-
-    case 25:
+case 24:
       return (
-        <DeckSlideFrame index={25}>
-          <SlideEyebrow index={25} />
+        <DeckSlideFrame index={24}>
+          <SlideEyebrow index={24} />
           <DeckSlideBodySplit
             layout="visual-bottom"
             className="deck-slide-body-split--key-deliverables"
@@ -954,14 +884,15 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
               The following outputs form part of the formal project handover, acceptance testing
               and go-live approval process for Barloworld Equipment.
             </DeckBody>
+            <DeckSectionLabel>Acceptance Evidence Pack</DeckSectionLabel>
+            <DeckBulletList compact items={[...acceptanceEvidencePackIncludes]} />
           </DeckSlideBodySplit>
         </DeckSlideFrame>
       );
-
-    case 26:
+case 25:
       return (
-        <DeckSlideFrame index={26}>
-          <SlideEyebrow index={26} />
+        <DeckSlideFrame index={25}>
+          <SlideEyebrow index={25} />
           <DeckTitle highlight="Governance for Successful Delivery">Structured</DeckTitle>
           <DeckSlideBodySplit
             layout="horizontal"
@@ -989,11 +920,10 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
           </DeckSlideBodySplit>
         </DeckSlideFrame>
       );
-
-    case 27:
+case 26:
       return (
-        <DeckSlideFrame index={27}>
-          <SlideEyebrow index={27} />
+        <DeckSlideFrame index={26}>
+          <SlideEyebrow index={26} />
           <DeckTitle highlight="Professionals Delivering Enterprise Solutions">
             Experienced
           </DeckTitle>
@@ -1018,11 +948,10 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
           <DeckBulletList compact items={[...projectPrinciples]} />
         </DeckSlideFrame>
       );
-
-    case 28:
+case 27:
       return (
-        <DeckSlideFrame index={28}>
-          <SlideEyebrow index={28} />
+        <DeckSlideFrame index={27}>
+          <SlideEyebrow index={27} />
           <DeckSlideBodySplit
             layout="visual-bottom"
             className="deck-slide-body-split--workstreams"
@@ -1059,11 +988,10 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
           </DeckSlideBodySplit>
         </DeckSlideFrame>
       );
-
-    case 29:
+case 28:
       return (
-        <DeckSlideFrame index={29}>
-          <SlideEyebrow index={29} />
+        <DeckSlideFrame index={28}>
+          <SlideEyebrow index={28} />
           <DeckSlideBodySplit visual={<GanttChart phases={projectTimeline} />}>
             <DeckTitle highlight="Implementation Schedule">Proposed</DeckTitle>
             <DeckBody>
@@ -1082,11 +1010,10 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
           </DeckSlideBodySplit>
         </DeckSlideFrame>
       );
-
-    case 30:
+case 29:
       return (
-        <DeckSlideFrame index={30}>
-          <SlideEyebrow index={30} />
+        <DeckSlideFrame index={29}>
+          <SlideEyebrow index={29} />
           <DeckSlideBodySplit visual={<TestingPyramidDiagram levels={testingPyramid} />}>
             <DeckTitle highlight="Production Readiness">Ensuring</DeckTitle>
             <DeckBody>
@@ -1115,11 +1042,10 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
           </DeckSlideBodySplit>
         </DeckSlideFrame>
       );
-
-    case 31:
+case 30:
       return (
-        <DeckSlideFrame index={31}>
-          <SlideEyebrow index={31} />
+        <DeckSlideFrame index={30}>
+          <SlideEyebrow index={30} />
           <DeckSlideBodySplit
             visual={<LearningJourneyDiagram steps={learningJourney} />}
           >
@@ -1153,11 +1079,10 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
           </DeckSlideBodySplit>
         </DeckSlideFrame>
       );
-
-    case 32:
+case 31:
       return (
-        <DeckSlideFrame index={32}>
-          <SlideEyebrow index={32} />
+        <DeckSlideFrame index={31}>
+          <SlideEyebrow index={31} />
           <DeckSlideBodySplit
             visual={<SupportLifecycleDiagram steps={supportLifecycle} />}
           >
@@ -1195,11 +1120,10 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
           </DeckSlideBodySplit>
         </DeckSlideFrame>
       );
-
-    case 33:
+case 32:
       return (
-        <DeckSlideFrame index={33}>
-          <SlideEyebrow index={33} />
+        <DeckSlideFrame index={32}>
+          <SlideEyebrow index={32} />
           <DeckTitle highlight="Responsive Enterprise Support">Delivering</DeckTitle>
           <DeckSlideBodySplit
             layout="horizontal"
@@ -1222,11 +1146,10 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
           </DeckSlideBodySplit>
         </DeckSlideFrame>
       );
-
-    case 34:
+case 33:
       return (
-        <DeckSlideFrame index={34}>
-          <SlideEyebrow index={34} />
+        <DeckSlideFrame index={33}>
+          <SlideEyebrow index={33} />
           <DeckSlideBodySplit
             visual={
               <RiskManagementVisual
@@ -1255,11 +1178,10 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
           </DeckSlideBodySplit>
         </DeckSlideFrame>
       );
-
-    case 35:
+case 34:
       return (
-        <DeckSlideFrame index={35} className="deck-slide--investment">
-          <SlideEyebrow index={35} />
+        <DeckSlideFrame index={34} className="deck-slide--investment">
+          <SlideEyebrow index={34} />
           <DeckTitle highlight="Summary">Investment</DeckTitle>
           <DeckBody>
             Infinity Business Dynamics proposes a transparent commercial model that combines
@@ -1289,11 +1211,10 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
           <DeckBulletList compact items={[...pricingNotes]} />
         </DeckSlideFrame>
       );
-
-    case 36:
+case 35:
       return (
-        <DeckSlideFrame index={36}>
-          <SlideEyebrow index={36} />
+        <DeckSlideFrame index={35}>
+          <SlideEyebrow index={35} />
           <DeckSlideBodySplit visual={<ComplianceMatrix items={supplierResponses} />}>
             <DeckTitle highlight="Barloworld Equipment Requirements">
               Response to
@@ -1306,11 +1227,10 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
           </DeckSlideBodySplit>
         </DeckSlideFrame>
       );
-
-    case 37:
+case 36:
       return (
-        <DeckSlideFrame index={37} className="deck-slide--bfr-traceability">
-          <SlideEyebrow index={37} />
+        <DeckSlideFrame index={36} className="deck-slide--bfr-traceability">
+          <SlideEyebrow index={36} />
           <DeckTitle highlight="Traceability Matrix">BFR Requirement</DeckTitle>
           <DeckBody>
             Each mandatory Business &amp; Technical Requirement (BFR) is mapped to the proposed
@@ -1324,26 +1244,12 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
           </div>
         </DeckSlideFrame>
       );
-
-
-    case 38:
+case 37:
       return (
-        <DeckSlideFrame index={38} className="deck-slide--acceptance-evidence">
-          <SlideEyebrow index={38} />
+        <DeckSlideFrame index={37} className="deck-slide--acceptance-evidence">
+          <SlideEyebrow index={37} />
           <DeckTitle highlight="Criteria">Acceptance Evidence</DeckTitle>
           {acceptanceEvidenceIntro.map((paragraph) => (
-            <DeckBody key={paragraph}>{paragraph}</DeckBody>
-          ))}
-          <DeckSectionLabel>Acceptance Approach</DeckSectionLabel>
-          {acceptanceEvidenceApproach.map((paragraph) => (
-            <DeckBody key={paragraph}>{paragraph}</DeckBody>
-          ))}
-          <DeckSectionLabel>Acceptance Criteria Principles</DeckSectionLabel>
-          <DeckBulletList compact items={[...acceptanceEvidencePrinciples]} />
-          <DeckSectionLabel>Evidence Pack Contents</DeckSectionLabel>
-          <DeckBulletList compact items={[...acceptanceEvidencePackIncludes]} />
-          <DeckSectionLabel>Go-Live Sign-off</DeckSectionLabel>
-          {acceptanceEvidenceSignOff.map((paragraph) => (
             <DeckBody key={paragraph}>{paragraph}</DeckBody>
           ))}
           <DeckSectionLabel>Acceptance Evidence Register</DeckSectionLabel>
@@ -1355,46 +1261,10 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
           </div>
         </DeckSlideFrame>
       );
-
-    case 39:
+case 38:
       return (
-        <DeckSlideFrame index={39}>
-          <SlideEyebrow index={39} />
-          <DeckSlideBodySplit
-            visual={
-              <WhyInfinityValueVisual
-                items={[...whyInfinityClosing]}
-                icons={WHY_INFINITY_VALUE_ICONS}
-              />
-            }
-          >
-            <DeckTitle highlight="Enterprise Technology Partner">A Trusted</DeckTitle>
-            <DeckBody>
-              Barloworld Equipment requires a technology partner capable of delivering more than
-              software.
-            </DeckBody>
-            <DeckBody>
-              The selected partner must understand enterprise architecture, Dynamics 365 integration,
-              regulatory compliance and long-term operational support.
-            </DeckBody>
-            <DeckBody>
-              Infinity Business Dynamics combines these capabilities into a single, integrated
-              service offering.
-            </DeckBody>
-            <DeckSectionLabel>Our Commitment</DeckSectionLabel>
-            <DeckBody>
-              Infinity Business Dynamics is committed to delivering a solution that enables
-              Barloworld Equipment to achieve regulatory compliance while improving operational
-              efficiency, governance and business resilience.
-            </DeckBody>
-          </DeckSlideBodySplit>
-        </DeckSlideFrame>
-      );
-
-    case 40:
-      return (
-        <DeckSlideFrame index={40} showParticles>
-          <SlideEyebrow index={40} />
+        <DeckSlideFrame index={38} showParticles>
+          <SlideEyebrow index={38} />
           <DeckTitle highlight="Future-Ready Compliance Platform">
             Building a
           </DeckTitle>
@@ -1429,11 +1299,10 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
           </ClosingBackdrop>
         </DeckSlideFrame>
       );
-
-    case 41:
+case 39:
       return (
-        <DeckSlideFrame index={41}>
-          <SlideEyebrow index={41} />
+        <DeckSlideFrame index={39}>
+          <SlideEyebrow index={39} />
           <DeckTitle highlight="of Proposal">Acceptance</DeckTitle>
           <DeckBody>
             The undersigned acknowledge receipt of this proposal and confirm acceptance of its
@@ -1473,11 +1342,10 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
           </div>
         </DeckSlideFrame>
       );
-
-    case 42:
+case 40:
       return (
-        <DeckSlideFrame index={42}>
-          <SlideEyebrow index={42} sectionNumber="32.5" />
+        <DeckSlideFrame index={40}>
+          <SlideEyebrow index={40} sectionNumber="32.5" />
           <DeckTitle highlight="Documentation">Supporting</DeckTitle>
           <DeckBody>
             RFQ annexures A–F accompany this proposal. Attached PDFs are included in the
@@ -1486,11 +1354,10 @@ export function renderProposalSlidesExtended(index: number): ReactElement {
           <SubmissionAppendixList section={submissionSections[0]!} iconOffset={0} />
         </DeckSlideFrame>
       );
-
-    case 43:
+case 41:
       return (
-        <DeckSlideFrame index={43}>
-          <SlideEyebrow index={43} sectionNumber="32.6" />
+        <DeckSlideFrame index={41}>
+          <SlideEyebrow index={41} sectionNumber="32.6" />
           <DeckTitle highlight="Documentation">Supporting</DeckTitle>
           <DeckBody>
             Mandatory supporting documents per RFQ §2. All attached PDFs are merged into the

@@ -524,9 +524,9 @@ export function GovernanceFrameworkVisual() {
   const workstreams = governanceStructure.slice(3);
 
   return (
-    <div className="governance-framework-visual flex h-full min-h-0 w-full flex-col gap-3 overflow-hidden">
+    <div className="governance-framework-visual flex h-full min-h-0 w-full flex-col gap-2 overflow-hidden">
       <DeckVisualZone label="Executive Oversight" variant="tint" className="flex min-h-0 flex-1 flex-col overflow-hidden">
-        <div className="governance-framework-visual__list flex min-h-0 flex-1 flex-col gap-2">
+        <div className="governance-framework-visual__list flex min-h-0 flex-1 flex-col">
           {leadership.map((item, index) => (
             <GovernanceRoleCard
               key={item.title}
@@ -541,7 +541,7 @@ export function GovernanceFrameworkVisual() {
         </div>
       </DeckVisualZone>
       <DeckVisualZone label="Delivery Workstreams" variant="neutral" className="flex min-h-0 flex-1 flex-col overflow-hidden">
-        <div className="governance-framework-visual__list flex min-h-0 flex-1 flex-col gap-2">
+        <div className="governance-framework-visual__list flex min-h-0 flex-1 flex-col">
           {workstreams.map((item, index) => (
             <GovernanceRoleCard
               key={item.title}
@@ -820,13 +820,21 @@ function EcosystemFlowCard({
   title,
   index,
   icon,
+  className = "",
+  compact = false,
 }: {
   title: string;
   index: number;
   icon?: LucideIcon;
+  className?: string;
+  compact?: boolean;
 }) {
   return (
-    <div className="deck-flow-step-card gms-card flex h-full w-full flex-col justify-center rounded-2xl px-2.5 py-2">
+    <div
+      className={`deck-flow-step-card gms-card flex w-full min-w-0 flex-col justify-center rounded-2xl px-2.5 ${
+        compact ? "py-1.5" : "h-full py-2"
+      } ${className}`.trim()}
+    >
       <div className="deck-flow-step-card__row gap-2">
         <div className="deck-flow-step-card__number-col deck-flow-step-card__number-col--compact">
           <FlowStepTile compact>
@@ -1078,64 +1086,6 @@ export function SolutionOverviewVisual({
 }
 
 /** Dynamics 365 integration — layered architecture (source → API → compliance → capabilities) */
-function DynamicsModuleTile({
-  title,
-  index,
-  icon,
-}: {
-  title: string;
-  index: number;
-  icon: LucideIcon;
-}) {
-  return (
-    <div className="dynamics-integration-visual__module deck-flow-step-card gms-card flex min-h-0 flex-col justify-center rounded-2xl px-2.5 py-2.5">
-      <div className="deck-flow-step-card__row items-center gap-2">
-        <div className="deck-flow-step-card__number-col deck-flow-step-card__number-col--compact shrink-0">
-          <FlowStepTile compact>{deckIcon(icon, "md")}</FlowStepTile>
-        </div>
-        <div className="min-w-0 flex-1">
-          <span className="deck-flow-step-card__number deck-flow-step-card__number--compact tabular-nums">
-            {String(index).padStart(2, "0")}
-          </span>
-          <p className="deck-flow-step-card__title deck-flow-step-card__title--compact mt-0.5">
-            {title}
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function DynamicsComplianceStep({
-  title,
-  index,
-  icon,
-  emphasis = false,
-}: {
-  title: string;
-  index: number;
-  icon: LucideIcon;
-  emphasis?: boolean;
-}) {
-  return (
-    <div
-      className={`dynamics-integration-visual__compliance-step deck-flow-step-card gms-card flex min-h-0 min-w-0 flex-1 flex-col justify-center rounded-2xl px-3 py-3 ${
-        emphasis ? "dynamics-integration-visual__compliance-step--emphasis" : ""
-      }`.trim()}
-    >
-      <div className="flex flex-col items-center gap-2 text-center">
-        <FlowStepTile compact>{deckIcon(icon, "md")}</FlowStepTile>
-        <span className="deck-flow-step-card__number deck-flow-step-card__number--compact tabular-nums">
-          {String(index).padStart(2, "0")}
-        </span>
-        <p className="deck-flow-step-card__title deck-flow-step-card__title--compact">
-          {title}
-        </p>
-      </div>
-    </div>
-  );
-}
-
 export function SapIntegrationVisual({
   flow,
   sideCards,
@@ -1148,51 +1098,67 @@ export function SapIntegrationVisual({
   const compliancePath = flow.slice(5, 8);
 
   return (
-    <div className="dynamics-integration-visual flex h-full min-h-0 flex-1 flex-col gap-3">
-      <DeckVisualZone label="Microsoft Dynamics 365" variant="tint">
-        <div className="dynamics-integration-visual__module-grid">
+    <div className="dynamics-integration-visual flex h-full min-h-0 w-full flex-col gap-2 overflow-hidden">
+      <DeckVisualZone label="Microsoft Dynamics 365" variant="tint" className="shrink-0">
+        <div className="dynamics-integration-visual__module-grid h-[80px]">
           {d365Modules.map((title, index) => (
-            <DynamicsModuleTile
+            <EcosystemFlowCard
               key={title}
               title={title}
               index={index + 1}
               icon={
                 SAP_INTEGRATION_FLOW_ICONS[index] ??
-                  SAP_INTEGRATION_FLOW_ICONS[SAP_INTEGRATION_FLOW_ICONS.length - 1]!
+                SAP_INTEGRATION_FLOW_ICONS[SAP_INTEGRATION_FLOW_ICONS.length - 1]!
               }
             />
           ))}
         </div>
       </DeckVisualZone>
 
-      <div className="dynamics-integration-visual__connector" aria-hidden>
+      <div className="dynamics-integration-visual__connector shrink-0" aria-hidden>
         <span className="dynamics-integration-visual__connector-line" />
-        <div className="dynamics-integration-visual__connector-pill gms-card inline-flex items-center gap-2 rounded-full px-3 py-2">
-          <FlowStepTile compact>{deckIcon(SAP_INTEGRATION_FLOW_ICONS[4] ?? Plug, "md")}</FlowStepTile>
-          <span className="deck-flow-step-card__title deck-flow-step-card__title--compact dynamics-integration-visual__connector-label">
-            {apiLayer}
-          </span>
+        <div className="dynamics-integration-visual__connector-pill deck-flow-step-card gms-card flex items-center justify-center rounded-full px-4">
+          <div className="deck-flow-step-card__row h-full w-full">
+            <div className="deck-flow-step-card__number-col deck-flow-step-card__number-col--compact shrink-0">
+              <FlowStepTile compact>
+                <span className="deck-flow-step-card__number deck-flow-step-card__number--compact tabular-nums">
+                  05
+                </span>
+              </FlowStepTile>
+            </div>
+            <p className="deck-flow-step-card__title deck-flow-step-card__title--compact min-w-0">
+              {apiLayer}
+            </p>
+            <div className="deck-flow-step-card__icon-col deck-flow-step-card__icon-col--compact shrink-0">
+              <FlowStepTile compact>
+                {deckIcon(SAP_INTEGRATION_FLOW_ICONS[4] ?? Plug, "sm")}
+              </FlowStepTile>
+            </div>
+          </div>
         </div>
         <span className="dynamics-integration-visual__connector-line" />
-        <ArrowDown className="dynamics-integration-visual__connector-arrow h-5 w-5 shrink-0 text-deck-accent" strokeWidth={2.5} />
+        <ArrowDown className="dynamics-integration-visual__connector-arrow h-4 w-4 shrink-0 text-deck-accent" strokeWidth={2.5} />
       </div>
 
-      <DeckVisualZone label="Compliance Pathway" variant="neutral" className="min-h-0 flex-1">
-        <div className="dynamics-integration-visual__compliance-row flex min-h-0 flex-1 items-stretch gap-2">
+      <DeckVisualZone label="Compliance Pathway" variant="neutral" className="shrink-0">
+        <div className="dynamics-integration-visual__compliance-row flex items-stretch gap-2">
           {compliancePath.map((title, index) => (
             <Fragment key={title}>
-              <DynamicsComplianceStep
+              <EcosystemFlowCard
                 title={title}
                 index={index + 6}
+                compact
                 icon={
                   SAP_INTEGRATION_FLOW_ICONS[index + 5] ??
-                    SAP_INTEGRATION_FLOW_ICONS[SAP_INTEGRATION_FLOW_ICONS.length - 1]!
+                  SAP_INTEGRATION_FLOW_ICONS[SAP_INTEGRATION_FLOW_ICONS.length - 1]!
                 }
-                emphasis={index === 0}
+                className={`flex-1${
+                  index === 0 ? " dynamics-integration-visual__compliance-step--emphasis" : ""
+                }`}
               />
               {index < compliancePath.length - 1 && (
                 <span className="dynamics-integration-visual__compliance-arrow flex shrink-0 items-center text-deck-accent">
-                  <ArrowRight className="h-5 w-5" strokeWidth={2.5} />
+                  <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
                 </span>
               )}
             </Fragment>
@@ -1201,22 +1167,26 @@ export function SapIntegrationVisual({
       </DeckVisualZone>
 
       <DeckVisualZone label="Platform Capabilities" variant="neutral" className="shrink-0">
-        <div className="dynamics-integration-visual__capabilities grid shrink-0 grid-cols-4 gap-2">
+        <div className="dynamics-integration-visual__capabilities grid h-[89px] grid-cols-4 gap-2">
           {sideCards.map((card, index) => (
             <div
               key={card}
-              className="dynamics-integration-visual__capability deck-flow-step-card gms-card flex flex-col items-center justify-center gap-2 rounded-2xl px-2.5 py-2.5 text-center"
+              className="deck-flow-step-card gms-card flex h-full w-full flex-col justify-center rounded-2xl px-2 py-2"
             >
-              <FlowStepTile compact>
-                {deckIcon(
-                  SAP_INTEGRATION_SIDE_ICONS[index] ??
-                    SAP_INTEGRATION_SIDE_ICONS[SAP_INTEGRATION_SIDE_ICONS.length - 1]!,
-                  "md",
-                )}
-              </FlowStepTile>
-              <span className="dynamics-integration-visual__capability-label deck-flow-step-card__title deck-flow-step-card__title--compact">
-                {card}
-              </span>
+              <div className="deck-flow-step-card__row items-center gap-1.5">
+                <div className="deck-flow-step-card__number-col deck-flow-step-card__number-col--compact shrink-0">
+                  <FlowStepTile compact>
+                    {deckIcon(
+                      SAP_INTEGRATION_SIDE_ICONS[index] ??
+                        SAP_INTEGRATION_SIDE_ICONS[SAP_INTEGRATION_SIDE_ICONS.length - 1]!,
+                      "sm",
+                    )}
+                  </FlowStepTile>
+                </div>
+                <p className="dynamics-integration-visual__capability-label deck-flow-step-card__title deck-flow-step-card__title--compact min-w-0 flex-1">
+                  {card}
+                </p>
+              </div>
             </div>
           ))}
         </div>

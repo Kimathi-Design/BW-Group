@@ -47,7 +47,7 @@ export const submissionSections: readonly SubmissionSection[] = [
         id: "ANNEXURE A",
         title: "Statement of Work",
         purpose:
-          "Technical and functional response to RFQ Annexure A, addressed in the main proposal document (slides 4–40).",
+          "Technical and functional response to RFQ Annexure A, addressed in the main proposal document (slides 4–39).",
       },
       {
         id: "ANNEXURE B",

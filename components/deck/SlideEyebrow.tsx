@@ -21,7 +21,6 @@ import {
   Headphones,
   Layers,
   LayoutList,
-  LineChart,
   Lock,
   Mail,
   Network,
@@ -67,29 +66,27 @@ const SLIDE_ICONS: LucideIcon[] = [
   GitBranch, // 18 Online & Offline Processing
   Lock, // 19 Digital Certificate Management
   QrCode, // 20 QR Code Management
-  BarChart3, // 21 Compliance Monitoring & Analytics
+  BarChart3, // 21 Monitoring, Reporting & Analytics
   ShieldCheck, // 22 Business Continuity & DR
-  LineChart, // 23 Compliance Analytics & Reporting
-  Sparkles, // 24 Implementation Methodology
-  Package, // 25 Key Deliverables
-  Scale, // 26 Project Governance
-  Users, // 27 Project Organisation & Delivery Team
-  GitBranch, // 28 Project Implementation Plan
-  Calendar, // 29 Project Timeline
-  FileCheck, // 30 Testing & Quality Assurance
-  GraduationCap, // 31 Training & Change Management
-  Headphones, // 32 Support & Managed Services
-  Timer, // 33 Service Level Commitments
-  Lock, // 34 Risk Management
-  Banknote, // 35 Commercial Proposal
-  ClipboardList, // 36 Supplier Responses
-  ClipboardCheck, // 37 BFR Requirement Traceability
-  BadgeCheck, // 38 Acceptance Evidence
-  Award, // 39 Why Infinity Business Dynamics
-  Sparkles, // 40 Conclusion
-  FileSignature, // 41 Proposal Acceptance
-  BookOpen, // 42 Barloworld RFQ Annexures
-  FileCheck, // 43 Mandatory Supporting Documents (RFQ §2)
+  Sparkles, // 23 Implementation Methodology
+  Package, // 24 Key Deliverables
+  Scale, // 25 Project Governance
+  Users, // 26 Project Organisation & Delivery Team
+  GitBranch, // 27 Project Implementation Plan
+  Calendar, // 28 Project Timeline
+  FileCheck, // 29 Testing & Quality Assurance
+  GraduationCap, // 30 Training & Change Management
+  Headphones, // 31 Support & Managed Services
+  Timer, // 32 Service Level Commitments
+  Lock, // 33 Risk Management
+  Banknote, // 34 Commercial Proposal
+  ClipboardList, // 35 Supplier Responses
+  ClipboardCheck, // 36 BFR Requirement Traceability
+  BadgeCheck, // 37 Acceptance Evidence
+  Sparkles, // 38 Conclusion
+  FileSignature, // 39 Proposal Acceptance
+  BookOpen, // 40 Barloworld RFQ Annexures
+  FileCheck, // 41 Mandatory Supporting Documents (RFQ §2)
 ];
 
 type SectionBadgeProps = {

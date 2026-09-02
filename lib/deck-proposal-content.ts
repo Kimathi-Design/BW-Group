@@ -32,7 +32,7 @@ export const executiveLetter = {
     "We appreciate the opportunity to participate in this Request for Quotation and look forward to partnering with Barloworld Equipment on this important compliance transformation initiative.",
   ],
   closing: "Yours faithfully,",
-  signatureName: "Fusi Munyolo",
+  signatureName: "Fusi Monyolo",
   signatureRole: "Director",
   signatureOrg: "Infinity Business Dynamics (Pty) Ltd",
   signatureTagline: "Harnessing the Power of Technology",
@@ -67,37 +67,41 @@ export const tableOfContentsSections = [
       { title: "Motheo Compliance Engine", page: 16 },
       { title: "Security Architecture", page: 17 },
       { title: "Transaction Lifecycle", page: 18 },
+      { title: "Online & Offline Processing", page: 19 },
+      { title: "Digital Certificate Management", page: 20 },
       { title: "QR Code Framework", page: 21 },
-      { title: "Monitoring & Reporting", page: 22 },
+      { title: "Monitoring, Reporting & Analytics", page: 22 },
       { title: "Business Continuity", page: 23 },
     ],
   },
   {
     section: "Delivery",
     entries: [
-      { title: "Implementation Methodology", page: 25 },
-      { title: "Key Deliverables", page: 26 },
-      { title: "Project Governance", page: 27 },
-      { title: "Project Team", page: 28 },
-      { title: "Project Timeline", page: 30 },
-      { title: "Testing Strategy", page: 31 },
-      { title: "User Training", page: 32 },
-      { title: "Support Model", page: 33 },
-      { title: "Service Level Commitments", page: 34 },
-      { title: "Risk Management", page: 35 },
+      { title: "Implementation Methodology", page: 24 },
+      { title: "Key Deliverables", page: 25 },
+      { title: "Project Governance", page: 26 },
+      { title: "Project Team", page: 27 },
+      { title: "Project Implementation Plan", page: 28 },
+      { title: "Project Timeline", page: 29 },
+      { title: "Testing Strategy", page: 30 },
+      { title: "User Training", page: 31 },
+      { title: "Support Model", page: 32 },
+      { title: "Service Level Commitments", page: 33 },
+      { title: "Risk Management", page: 34 },
     ],
   },
   {
     section: "Commercial",
     entries: [
-      { title: "Commercial Proposal", page: 36 },
-      { title: "Annual Managed Services", page: 36 },
-      { title: "Supplier Responses", page: 37 },
-      { title: "BFR Requirement Traceability", page: 38 },
-      { title: "Acceptance Evidence", page: 39 },
-      { title: "Terms & Conditions Acceptance", page: 42 },
-      { title: "Barloworld RFQ Annexures", page: 43 },
-      { title: "Mandatory Supporting Documents (RFQ §2)", page: 44 },
+      { title: "Commercial Proposal", page: 35 },
+      { title: "Annual Managed Services", page: 35 },
+      { title: "Supplier Responses", page: 36 },
+      { title: "BFR Requirement Traceability", page: 37 },
+      { title: "Acceptance Evidence", page: 38 },
+      { title: "Conclusion", page: 39 },
+      { title: "Terms & Conditions Acceptance", page: 40 },
+      { title: "Barloworld RFQ Annexures", page: 41 },
+      { title: "Mandatory Supporting Documents (RFQ §2)", page: 42 },
     ],
   },
 ] as const;
@@ -1320,32 +1324,32 @@ export const governanceStructure = [
   {
     title: "Executive Steering Committee",
     description:
-      "Senior Barloworld leadership sets strategic direction, approves major decisions and confirms alignment with enterprise priorities. Convenes at stage gates to review progress, risks, budget and readiness for production.",
+      "Senior Barloworld leadership sets direction, approves major decisions and reviews stage-gate progress, risks and go-live readiness.",
   },
   {
     title: "Project Sponsor",
     description:
-      "Owns business outcomes and champions the initiative across finance, operations and IT. Secures resources, escalates blockers and provides executive sign-off on deliverables, scope changes and go-live approval.",
+      "Owns business outcomes, secures resources, escalates blockers and provides executive sign-off on deliverables and scope.",
   },
   {
     title: "Project Manager",
     description:
-      "Plans and coordinates delivery across all workstreams, maintaining schedules, RAID logs and stakeholder communication. Reports status to the sponsor and steering committee and drives issue resolution through to closure.",
+      "Coordinates delivery across workstreams, maintains schedules and RAID logs, and reports status to the sponsor and steering committee.",
   },
   {
     title: "Technical Workstream",
     description:
-      "Delivers Dynamics 365 integration, API orchestration, infrastructure provisioning and security configuration for the Compliance Gateway. Ensures technical readiness, integration testing and performance validation before deployment.",
+      "Delivers Dynamics 365 integration, API orchestration, infrastructure and security for the Compliance Gateway through integration testing.",
   },
   {
     title: "Compliance Workstream",
     description:
-      "Defines RSL fiscal validation rules, certificate lifecycle controls and regulatory test scenarios. Confirms submissions meet accreditation requirements and supports compliance sign-off ahead of production.",
+      "Defines RSL validation rules, certificate controls and regulatory test scenarios for compliance sign-off before production.",
   },
   {
     title: "Business Workstream",
     description:
-      "Aligns finance and operations processes, leads user acceptance, training and change management. Coordinates business readiness, hypercare planning and formal acceptance of the solution at go-live.",
+      "Aligns finance and operations processes, leads UAT, training and change management, and coordinates go-live acceptance.",
   },
 ] as const;
 
@@ -1669,21 +1673,9 @@ export const servicePrinciples = [
     inline: true,
   },
   {
-    title: "Customer Success",
-    description:
-      "Focus on platform availability, compliance continuity and long-term operational outcomes.",
-    inline: true,
-  },
-  {
     title: "Proactive Monitoring",
     description:
       "Continuous platform, API and system uptime monitoring to detect and resolve issues before business impact.",
-    inline: true,
-  },
-  {
-    title: "Regulatory Continuity",
-    description:
-      "RSL submission performance and compliance uptime maintained as core managed service commitments.",
     inline: true,
   },
   {
@@ -1911,7 +1903,7 @@ export const keyDeliverablesDetailed = [
 ] as const;
 
 export const keyDeliverablesIntro = [
-  "Infinity Business Dynamics will deliver the following outputs as part of the Compliance Gateway implementation, aligned to the Business & Technical Requirements for Barloworld CAT.",
+  "Infinity Business Dynamics will deliver the following outputs as part of the Compliance Gateway implementation, aligned to the Business & Technical Requirements for Barloworld Equipment.",
   "Each deliverable is produced through the five-phase delivery framework and forms part of the formal project handover and acceptance process.",
 ] as const;
 
@@ -1959,7 +1951,12 @@ export const bfrAcceptanceEvidence = [
 ] as const;
 
 export const acceptanceEvidenceIntro = [
-  "The acceptance evidence below is derived from BFR scope and deliverables. Infinity Business Dynamics will provide documented proof for each area at project closure and go-live approval.",
+  "The acceptance evidence register below maps each mandatory BFR acceptance area to documented proof provided at project closure and go-live approval.",
+] as const;
+
+export const manualCaptureSummary = [
+  "Authorised users capture qualifying invoices in the Compliance Gateway when Dynamics 365 posting is not applicable.",
+  "Manual entries follow the same validation, fiscalisation, QR generation and Lekuka submission path as ERP-originated transactions.",
 ] as const;
 
 export const acceptanceEvidenceApproach = [
@@ -2001,16 +1998,16 @@ export const bfrTraceability = [
   ["DEV-02", "Device ID configuration", "Per-endpoint device identifier setup", "15"],
   ["DEV-03", "Tax configuration", "Lesotho VAT and fiscal field mapping", "13"],
   ["MON-01", "Transaction dashboard", "Accepted / Rejected / Pending visibility", "22"],
-  ["MON-02", "Audit trail", "End-to-end submission audit logging", "17, 22–24"],
-  ["MON-03", "Reporting", "Daily transaction and reconciliation reports", "22, 24"],
+  ["MON-02", "Audit trail", "End-to-end submission audit logging", "17, 22"],
+  ["MON-03", "Reporting", "Daily transaction and reconciliation reports", "22"],
   ["RES-01", "Offline queue", "Secure local transaction queue", "19"],
-  ["RES-02", "Auto resubmission", "Retry engine and automatic sync", "19, 23"],
-  ["IMP-01", "Sandbox environment", "Dedicated test environment deliverable", "25, 30"],
+  ["RES-02", "Auto resubmission", "Retry engine and automatic sync", "19, 22"],
+  ["IMP-01", "Sandbox environment", "Dedicated test environment deliverable", "24, 30"],
   ["IMP-02", "Integration testing", "End-to-end integration testing support", "30"],
   ["IMP-03", "Go-live support", "Production deployment and hypercare", "29, 31"],
-  ["SUP-01", "Managed service", "Managed compliance service model", "31–32"],
-  ["SUP-02", "Regulatory updates", "Future Lekuka and regulatory changes", "31"],
-  ["SUP-03", "Uptime monitoring", "24/7 system uptime and API monitoring", "31–32"],
+  ["SUP-01", "Managed service", "Managed compliance service model", "32–33"],
+  ["SUP-02", "Regulatory updates", "Future Lekuka and regulatory changes", "32"],
+  ["SUP-03", "Uptime monitoring", "24/7 system uptime and API monitoring", "32–33"],
 ] as const;
 
 export const supplierResponses = [

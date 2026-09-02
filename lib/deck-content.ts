@@ -3,8 +3,8 @@ export * from "@/lib/deck-proposal-content";
 import { appendices } from "@/lib/deck-proposal-content";
 
 export const APPENDIX_COUNT = 0;
-export const APPENDIX_START_SLIDE = 44;
-export const SLIDE_COUNT = 44;
+export const APPENDIX_START_SLIDE = 42;
+export const SLIDE_COUNT = 42;
 
 /** A4 portrait at ~150 DPI (210mm × 297mm) */
 export const SLIDE_WIDTH = 1240;
@@ -39,9 +39,8 @@ export const slideTitles = [
   "Online & Offline Processing",
   "Digital Certificate Management",
   "QR Code Management",
-  "Compliance Monitoring & Analytics",
+  "Monitoring, Reporting & Analytics",
   "Business Continuity & Disaster Recovery",
-  "Compliance Analytics & Reporting",
   "Implementation Methodology",
   "Key Deliverables",
   "Project Governance",
@@ -57,7 +56,6 @@ export const slideTitles = [
   "Supplier Responses",
   "BFR Requirement Traceability",
   "Acceptance Evidence",
-  "Why Infinity Business Dynamics",
   "Conclusion",
   "Proposal Acceptance",
   "Barloworld RFQ Annexures",
@@ -102,7 +100,8 @@ const TOC_TITLE_ALIASES: Record<string, string> = {
   "Enterprise Architecture": "Enterprise Solution Architecture",
   "Dynamics 365 Integration Architecture": "Dynamics 365 ERP Integration",
   "QR Code Framework": "QR Code Management",
-  "Monitoring & Reporting": "Compliance Monitoring & Analytics",
+  "Monitoring, Reporting & Analytics": "Monitoring, Reporting & Analytics",
+  "Monitoring & Reporting": "Monitoring, Reporting & Analytics",
   "Business Continuity": "Business Continuity & Disaster Recovery",
   "Project Team": "Project Organisation & Delivery Team",
   "Testing Strategy": "Testing & Quality Assurance",
@@ -127,13 +126,16 @@ const TOC_ENTRIES = [
   "Motheo Compliance Engine",
   "Security Architecture",
   "Transaction Lifecycle",
+  "Online & Offline Processing",
+  "Digital Certificate Management",
   "QR Code Framework",
-  "Monitoring & Reporting",
+  "Monitoring, Reporting & Analytics",
   "Business Continuity",
   "Implementation Methodology",
   "Key Deliverables",
   "Project Governance",
   "Project Team",
+  "Project Implementation Plan",
   "Project Timeline",
   "Testing Strategy",
   "User Training",
@@ -145,6 +147,7 @@ const TOC_ENTRIES = [
   "Supplier Responses",
   "BFR Requirement Traceability",
   "Acceptance Evidence",
+  "Conclusion",
   "Terms & Conditions Acceptance",
   "Barloworld RFQ Annexures",
   "Mandatory Supporting Documents (RFQ §2)",
