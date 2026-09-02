@@ -6,7 +6,7 @@ const CONTACT_LINES = [
   {
     icon: "👤",
     label: "Primary Contact",
-    value: `${coverMeta.primaryContactName} — ${coverMeta.primaryContactRole}`,
+    value: `${coverMeta.primaryContactName}, ${coverMeta.primaryContactRole}`,
   },
   { icon: "📍", label: "Address", value: coverMeta.address },
   { icon: "🌐", label: "Website", value: coverMeta.website, href: `https://${coverMeta.website}` },

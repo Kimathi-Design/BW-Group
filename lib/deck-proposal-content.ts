@@ -1,4 +1,4 @@
-/** Verbatim proposal copy — pages 1–42 */
+/** Verbatim proposal copy for pages 1–44 */
 
 export const proposalCover = {
   title: "ENTERPRISE COMPLIANCE GATEWAY",
@@ -26,7 +26,7 @@ export const executiveLetter = {
     "Infinity Business Dynamics appreciates the opportunity to submit this proposal for the design, supply, implementation and long-term support of an Enterprise Compliance Gateway (Electronic Billing System) for Barloworld Equipment Lesotho.",
     "As Revenue Services Lesotho continues to modernise tax administration through the Lekuka Electronic Billing System, organisations operating complex enterprise environments must ensure that fiscal transactions are processed securely, accurately and in real time while maintaining uninterrupted business operations.",
     "Under the Lekuka mandate, invoices, credit notes, debit notes, receipts and payouts must be submitted to RSL in real time. Returned fiscal signatures and QR codes must appear on every printed customer document.",
-    "For Barloworld Equipment, compliance extends beyond regulatory reporting. The solution must integrate seamlessly with existing Microsoft Dynamics 365 ERP and CRM environments, support multiple business processes — including manual invoice capture — and provide a resilient architecture capable of supporting future operational growth.",
+    "For Barloworld Equipment, compliance extends beyond regulatory reporting. The solution must integrate seamlessly with existing Microsoft Dynamics 365 ERP and CRM environments, support multiple business processes, including manual invoice capture, and provide a resilient architecture capable of supporting future operational growth.",
     "To address these requirements, Infinity Business Dynamics proposes the Infinity Compliance Gateway, powered by the Motheo Compliance Engine. The solution introduces a dedicated enterprise integration and compliance layer between Barloworld's business systems and the Revenue Services Lesotho Lekuka platform.",
     "Our implementation approach combines enterprise architecture, Microsoft Dynamics 365 integration expertise, regulatory compliance and managed support services to deliver a scalable solution that aligns with Barloworld's strategic objectives.",
     "We appreciate the opportunity to participate in this Request for Quotation and look forward to partnering with Barloworld Equipment on this important compliance transformation initiative.",
@@ -76,26 +76,28 @@ export const tableOfContentsSections = [
     section: "Delivery",
     entries: [
       { title: "Implementation Methodology", page: 25 },
-      { title: "Project Governance", page: 26 },
-      { title: "Project Team", page: 27 },
-      { title: "Project Timeline", page: 29 },
-      { title: "Testing Strategy", page: 30 },
-      { title: "User Training", page: 31 },
-      { title: "Support Model", page: 32 },
-      { title: "Service Level Commitments", page: 33 },
-      { title: "Risk Management", page: 34 },
+      { title: "Key Deliverables", page: 26 },
+      { title: "Project Governance", page: 27 },
+      { title: "Project Team", page: 28 },
+      { title: "Project Timeline", page: 30 },
+      { title: "Testing Strategy", page: 31 },
+      { title: "User Training", page: 32 },
+      { title: "Support Model", page: 33 },
+      { title: "Service Level Commitments", page: 34 },
+      { title: "Risk Management", page: 35 },
     ],
   },
   {
     section: "Commercial",
     entries: [
-      { title: "Commercial Proposal", page: 35 },
-      { title: "Annual Managed Services", page: 35 },
-      { title: "Supplier Responses", page: 36 },
-      { title: "BFR Requirement Traceability", page: 37 },
-      { title: "Terms & Conditions Acceptance", page: 40 },
-      { title: "Barloworld RFQ Annexures", page: 41 },
-      { title: "Mandatory Supporting Documents (RFQ §2)", page: 42 },
+      { title: "Commercial Proposal", page: 36 },
+      { title: "Annual Managed Services", page: 36 },
+      { title: "Supplier Responses", page: 37 },
+      { title: "BFR Requirement Traceability", page: 38 },
+      { title: "Acceptance Evidence", page: 39 },
+      { title: "Terms & Conditions Acceptance", page: 42 },
+      { title: "Barloworld RFQ Annexures", page: 43 },
+      { title: "Mandatory Supporting Documents (RFQ §2)", page: 44 },
     ],
   },
 ] as const;
@@ -185,7 +187,7 @@ export const aboutInfinityIntro = [
 export const companyCredentials = [
   {
     title: "Registration",
-    description: "A2023/5840 — business licence renewed 23 April 2026 (expires 23 April 2029).",
+    description: "A2023/5840, business licence renewed 23 April 2026 (expires 23 April 2029).",
     inline: true,
   },
   {
@@ -296,8 +298,8 @@ export const whyChooseInfinity = [
 
 export const whyChooseInfinityProse = [
   "As Barloworld Equipment scales fiscal compliance across sales, billing and service operations, the selected partner must bridge certified Motheo technology with robust enterprise integration.",
-  "Infinity Business Dynamics brings deep Dynamics 365 experience, local implementation presence and a managed services model designed to keep compliance continuous — not a one-time project.",
-  "Our delivery model spans solution design, integration, testing, training and long-term support — giving Barloworld a single accountable partner from discovery through production operations.",
+  "Infinity Business Dynamics brings deep Dynamics 365 experience, local implementation presence and a managed services model designed to keep compliance continuous, not a one-time project.",
+  "Our delivery model spans solution design, integration, testing, training and long-term support, giving Barloworld a single accountable partner from discovery through production operations.",
 ] as const;
 
 export const rslAccreditationIntro = [
@@ -811,7 +813,7 @@ export const securityBusinessBenefits = [
 ] as const;
 
 export const transactionLifecycleSteps = [
-  { step: "01", title: "Transaction Created", description: "Invoice, credit note, debit note, receipt or payout generated in Dynamics 365 Finance/Sales or CRM — or captured manually via the gateway." },
+  { step: "01", title: "Transaction Created", description: "Invoice, credit note, debit note, receipt or payout generated in Dynamics 365 Finance/Sales or CRM, or captured manually via the gateway." },
   { step: "02", title: "Validation", description: "Business rules and mandatory fields are validated." },
   { step: "03", title: "Transformation", description: "Transaction converted into the Revenue Services Lesotho API format." },
   { step: "04", title: "Fiscal Processing", description: "Transaction processed through the Motheo Compliance Engine." },
@@ -1273,31 +1275,31 @@ export const reportingBusinessBenefits = [
 
 export const implementationPhases = [
   {
-    phase: "Phase 1 – Discover",
+    phase: "Phase 1: Discover",
     summary: "Understand Barloworld's business processes, Dynamics 365 environment, CRM landscape and compliance requirements.",
     activities: ["Project Kick-off", "Stakeholder Workshops", "Requirements Gathering", "Infrastructure Assessment", "Dynamics 365 & CRM Assessment", "Compliance Review"],
     deliverables: ["Project Charter", "Requirements Specification", "Solution Scope", "Risk Register"],
   },
   {
-    phase: "Phase 2 – Design",
+    phase: "Phase 2: Design",
     summary: "Design the enterprise solution architecture and integration framework.",
     activities: ["Architecture Design", "API Mapping", "Dynamics 365 Integration Design", "Security Design", "Compliance Configuration"],
     deliverables: ["Solution Architecture", "Integration Design", "Technical Specification"],
   },
   {
-    phase: "Phase 3 – Build",
+    phase: "Phase 3: Build",
     summary: "Configure and develop the Compliance Gateway.",
     activities: ["Gateway Configuration", "API Development", "Dynamics 365 Integration", "CRM Integration", "Compliance Rules", "Certificate Configuration"],
     deliverables: ["Configured Platform", "Integration Services", "Test Environment"],
   },
   {
-    phase: "Phase 4 – Validate",
+    phase: "Phase 4: Validate",
     summary: "Ensure the solution meets all functional and regulatory requirements.",
     activities: ["Functional Testing", "Integration Testing", "User Acceptance Testing", "Performance Testing", "Security Validation"],
     deliverables: ["Test Results", "UAT Sign-off", "Go-Live Approval"],
   },
   {
-    phase: "Phase 5 – Deploy",
+    phase: "Phase 5: Deploy",
     summary: "Transition the solution into production.",
     activities: ["Production Deployment", "Data Validation", "Hypercare Support", "Project Closure"],
     deliverables: ["Live Environment", "Support Handover", "Project Closure Report"],
@@ -1690,6 +1692,12 @@ export const servicePrinciples = [
       "Defined escalation paths ensure critical incidents reach the right expertise without delay.",
     inline: true,
   },
+  {
+    title: "Continuous Improvement",
+    description:
+      "Post-incident reviews, trend analysis and service refinements to strengthen long-term support quality.",
+    inline: true,
+  },
 ] as const;
 
 export const projectRisks = [
@@ -1830,7 +1838,7 @@ export const pricingSummary = [
   ["Integration Fees (one-time)", "LSL 248,934.78"],
   ["Managed Compliance Service (Year 1)", "LSL 91,500.00"],
   ["Year 1 Total", "LSL 391,500.00"],
-  ["Year 2 onwards — Annual Managed Compliance Service", "LSL 91,500.00 per annum"],
+  ["Year 2 onwards: Annual Managed Compliance Service", "LSL 91,500.00 per annum"],
 ] as const;
 
 export const pricingNotes = [
@@ -1862,6 +1870,121 @@ export const keyDeliverables = [
   "Production deployment and go-live support",
   "Operational support model and Service Level Agreement",
   "User training documentation",
+] as const;
+
+export const keyDeliverablesDetailed = [
+  {
+    title: "Configured Compliance Gateway",
+    description:
+      "Production-ready gateway with Lekuka integration, security controls and operational monitoring configured for Barloworld.",
+  },
+  {
+    title: "API Documentation & Specifications",
+    description:
+      "REST integration specifications and Annexure B API documentation for Dynamics 365 ERP and CRM connectivity.",
+  },
+  {
+    title: "BWE Onboarding & Configuration",
+    description:
+      "Barloworld Equipment onboarding, device registration, tax configuration and environment setup.",
+  },
+  {
+    title: "Test Evidence & Sandbox Validation",
+    description:
+      "Functional, integration and compliance test results including sandbox validation against Lekuka.",
+  },
+  {
+    title: "Production Deployment & Go-Live",
+    description:
+      "Production cutover, hypercare support and formal go-live readiness sign-off.",
+  },
+  {
+    title: "Support Model & SLA",
+    description:
+      "Operational support model, escalation paths and agreed Service Level Commitments.",
+  },
+  {
+    title: "User Training Documentation",
+    description:
+      "Administrator guides, user manuals, SOPs and structured knowledge-transfer sessions.",
+  },
+] as const;
+
+export const keyDeliverablesIntro = [
+  "Infinity Business Dynamics will deliver the following outputs as part of the Compliance Gateway implementation, aligned to the Business & Technical Requirements for Barloworld CAT.",
+  "Each deliverable is produced through the five-phase delivery framework and forms part of the formal project handover and acceptance process.",
+] as const;
+
+export const bfrAcceptanceEvidence = [
+  [
+    "ACC-01",
+    "Lekuka connectivity",
+    "Successful test submission and compliant response from the Lekuka environment.",
+  ],
+  [
+    "ACC-02",
+    "Transaction processing",
+    "Evidence that all required transaction types can be processed.",
+  ],
+  [
+    "ACC-03",
+    "Compliance response",
+    "QR, verification, device, tax and fiscal information returned and available to BWE systems.",
+  ],
+  [
+    "ACC-04",
+    "Manual capture",
+    "A manually captured invoice processed through the same compliance workflow.",
+  ],
+  [
+    "ACC-05",
+    "Resilience",
+    "Queued transactions automatically resubmitted after connectivity is restored.",
+  ],
+  [
+    "ACC-06",
+    "Auditability",
+    "Transaction history and submission status traceable through dashboard and audit trail.",
+  ],
+  [
+    "ACC-07",
+    "Reporting",
+    "Daily transaction and reconciliation reports produced.",
+  ],
+  [
+    "ACC-08",
+    "Go-live readiness",
+    "Sandbox validation and end-to-end testing evidence completed before production deployment.",
+  ],
+] as const;
+
+export const acceptanceEvidenceIntro = [
+  "The acceptance evidence below is derived from BFR scope and deliverables. Infinity Business Dynamics will provide documented proof for each area at project closure and go-live approval.",
+] as const;
+
+export const acceptanceEvidenceApproach = [
+  "Acceptance evidence provides formal proof that each mandatory BFR area is satisfied before production go-live, gathered progressively through sandbox, integration, UAT and production readiness review.",
+] as const;
+
+export const acceptanceEvidencePrinciples = [
+  "Mapped directly to BFR scope, solution design and agreed test plans",
+  "Validated progressively through sandbox, integration and UAT cycles",
+  "Supported by repeatable test scripts, results and formal sign-off records",
+  "Reviewed jointly by Infinity Business Dynamics and Barloworld stakeholders",
+  "Required for go-live readiness, hypercare exit and operational handover",
+] as const;
+
+export const acceptanceEvidencePackIncludes = [
+  "Signed UAT and integration test results for each ACC area",
+  "Sandbox and production connectivity confirmation records",
+  "Traceability matrix linking ACC IDs to test scripts and outcomes",
+  "Configuration baseline and fiscal device registration evidence",
+  "Hypercare readiness checklist and operational handover documents",
+] as const;
+
+export const acceptanceEvidenceSignOff = [
+  "At go-live readiness, Infinity Business Dynamics will submit a complete acceptance evidence pack linking each ACC requirement to documented proof for Barloworld review and approval.",
+  "Production deployment proceeds only after Barloworld Equipment confirms that all mandatory acceptance areas have been satisfied.",
 ] as const;
 
 export const bfrTraceability = [
@@ -1909,27 +2032,27 @@ export const whyInfinityClosing = [
   {
     title: "Revenue Services Lesotho Accredited",
     description:
-      "Certified Electronic Billing Solutions provider with direct RSL accreditation — ensuring fiscal invoices, digital certificates and QR codes meet Lesotho regulatory requirements from day one.",
+      "Certified Electronic Billing Solutions provider with direct RSL accreditation, ensuring fiscal invoices, digital certificates and QR codes meet Lesotho regulatory requirements from day one.",
   },
   {
     title: "Enterprise Integration Expertise",
     description:
-      "Proven capability connecting Microsoft Dynamics 365 ERP, CRM and compliance platforms through secure APIs — enabling automated invoice submission without disrupting existing finance and operations workflows.",
+      "Proven capability connecting Microsoft Dynamics 365 ERP, CRM and compliance platforms through secure APIs, enabling automated invoice submission without disrupting existing finance and operations workflows.",
   },
   {
     title: "Dynamics 365 Capability",
     description:
-      "Deep Microsoft Dynamics 365 integration experience across finance, distribution and equipment operations — supporting high-volume, multi-entity invoicing within Barloworld's enterprise landscape.",
+      "Deep Microsoft Dynamics 365 integration experience across finance, distribution and equipment operations, supporting high-volume, multi-entity invoicing within Barloworld's enterprise landscape.",
   },
   {
     title: "Managed Services",
     description:
-      "Ongoing application support, compliance monitoring and preventative maintenance — keeping the platform stable, current with regulatory changes and aligned to agreed SLA commitments.",
+      "Ongoing application support, compliance monitoring and preventative maintenance, keeping the platform stable, current with regulatory changes and aligned to agreed SLA commitments.",
   },
   {
     title: "Future-Ready Platform",
     description:
-      "ERP-agnostic gateway architecture preserves Motheo and Lekuka investments — future ERP transitions require connector updates only, not a full compliance rebuild.",
+      "ERP-agnostic gateway architecture preserves Motheo and Lekuka investments. Future ERP transitions require connector updates only, not a full compliance rebuild.",
   },
 ] as const;
 
@@ -1943,7 +2066,7 @@ export const conclusionBenefits = [
   {
     title: "Enterprise integration",
     description:
-      "Seamless Dynamics 365 ERP and CRM connectivity — eliminating manual re-keying and duplicate data capture across finance and operations.",
+      "Seamless Dynamics 365 ERP and CRM connectivity, eliminating manual re-keying and duplicate data capture across finance and operations.",
     inline: true,
   },
   {
@@ -1955,7 +2078,7 @@ export const conclusionBenefits = [
   {
     title: "Real-time monitoring",
     description:
-      "Live dashboards and alerts for submission status, failures and compliance exceptions — enabling rapid operational response.",
+      "Live dashboards and alerts for submission status, failures and compliance exceptions, enabling rapid operational response.",
     inline: true,
   },
   {

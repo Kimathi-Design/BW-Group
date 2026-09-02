@@ -28,6 +28,7 @@ import {
   FlaskConical,
   FolderOpen,
   Globe,
+  GraduationCap,
   Hammer,
   Handshake,
   Headphones,
@@ -48,6 +49,7 @@ import {
   Scale,
   Search,
   Server,
+  Settings,
   Shield,
   ShieldCheck,
   Sparkles,
@@ -653,6 +655,16 @@ export const SUPPORT_SERVICE_ICONS = [
   Server,
   RefreshCw,
   TrendingUp,
+] as const;
+
+export const KEY_DELIVERABLE_ICONS = [
+  Server,
+  FileText,
+  Settings,
+  FlaskConical,
+  Rocket,
+  Headphones,
+  GraduationCap,
 ] as const;
 
 export const CODE_OF_CONDUCT_ICONS = [

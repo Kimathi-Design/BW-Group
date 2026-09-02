@@ -30,10 +30,11 @@ import {
   MOTHEO_RADIAL_NODE_ICONS,
   SAP_INTEGRATION_FLOW_ICONS,
   SAP_INTEGRATION_SIDE_ICONS,
+  KEY_DELIVERABLE_ICONS,
   SOLUTION_ECOSYSTEM_SIDE_ICONS,
   SOLUTION_ECOSYSTEM_STEP_ICONS,
 } from "@/components/deck/deck-icons";
-import { DeckVisualZone } from "@/components/deck/DeckSlideFrame";
+import { DeckFeatureGrid, DeckVisualZone } from "@/components/deck/DeckSlideFrame";
 import { escalationLevels, governanceStructure, securityBadges, securityFlow, serviceLevels } from "@/lib/deck-content";
 
 function FlowArrow({ horizontal = false }: { horizontal?: boolean }) {
@@ -1287,6 +1288,27 @@ export function CertificateCycleDiagram({ steps }: { steps: readonly string[] })
   );
 }
 
+function splitPhaseItems(items: readonly string[]) {
+  if (items.length <= 1) {
+    return [items.join(" · ")];
+  }
+  if (items.length <= 3) {
+    return [items.join(" · ")];
+  }
+  if (items.length === 4) {
+    return [
+      items.slice(0, 3).join(" · "),
+      items.slice(3).join(" · "),
+    ];
+  }
+  const perLine = Math.ceil(items.length / 2);
+  const lines: string[] = [];
+  for (let i = 0; i < items.length; i += perLine) {
+    lines.push(items.slice(i, i + perLine).join(" · "));
+  }
+  return lines;
+}
+
 function ImplementationPhaseList({
   label,
   items,
@@ -1296,16 +1318,22 @@ function ImplementationPhaseList({
   items: readonly string[];
   variant: "activities" | "deliverables";
 }) {
+  const lines = splitPhaseItems(items);
+
   return (
     <div
       className={`implementation-phases-visual__list implementation-phases-visual__list--${variant} min-w-0`}
     >
-      <p className="implementation-phases-visual__list-label deck-type-card-title">
+      <p className="implementation-phases-visual__list-label">
         {label}
       </p>
-      <p className="implementation-phases-visual__items deck-type-card-body">
-        {items.join(" · ")}
-      </p>
+      <div className="implementation-phases-visual__items">
+        {lines.map((line) => (
+          <p key={line} className="implementation-phases-visual__items-line">
+            {line}
+          </p>
+        ))}
+      </div>
     </div>
   );
 }
@@ -1327,7 +1355,7 @@ export function ImplementationPhasesVisual({
         {phases.map((phase, index) => (
           <div
             key={phase.phase}
-            className="implementation-phases-visual__card gms-card flex min-h-0 flex-col"
+            className="implementation-phases-visual__card gms-card flex h-full min-h-0 flex-col"
           >
             <div className="implementation-phases-visual__card-head flex min-w-0 items-center">
               <FlowStepTile compact>
@@ -1337,11 +1365,11 @@ export function ImplementationPhasesVisual({
                   "sm",
                 )}
               </FlowStepTile>
-              <p className="implementation-phases-visual__phase-title deck-type-card-title min-w-0 flex-1">
+              <p className="implementation-phases-visual__phase-title min-w-0 flex-1">
                 {phase.phase}
               </p>
             </div>
-            <p className="implementation-phases-visual__summary deck-type-body text-[color:var(--gms-text-muted)]">
+            <p className="implementation-phases-visual__summary">
               {phase.summary}
             </p>
             <div className="implementation-phases-visual__details">
@@ -2088,6 +2116,64 @@ export function ValueCardsVisual({
           </p>
         </div>
       ))}
+      </div>
+    </DeckVisualZone>
+  );
+}
+
+export function KeyDeliverablesVisual({
+  items,
+  icons,
+}: {
+  items: readonly { title: string; description: string }[];
+  icons?: readonly LucideIcon[];
+}) {
+  return (
+    <DeckVisualZone label="Delivery Outputs" variant="tint" className="key-deliverables-visual__zone flex h-full min-h-0 w-full flex-1 flex-col">
+      <DeckFeatureGrid
+        uniform
+        columns={2}
+        fill
+        items={items.map((item, index) => ({
+          title: item.title,
+          description: item.description,
+          icon: deckIcon(
+            icons?.[index] ?? KEY_DELIVERABLE_ICONS[index] ?? KEY_DELIVERABLE_ICONS[0]!,
+            "sm",
+          ),
+        }))}
+      />
+    </DeckVisualZone>
+  );
+}
+
+export function AcceptanceEvidenceVisual({
+  items,
+}: {
+  items: readonly (readonly [string, string, string])[];
+}) {
+  return (
+    <DeckVisualZone label="Acceptance Criteria" variant="tint" className="flex h-full min-h-0 w-full flex-1 flex-col">
+      <div className="acceptance-evidence-visual flex min-h-0 flex-1 flex-col gap-2 overflow-y-auto">
+        {items.map(([id, area, evidence]) => (
+          <div
+            key={id}
+            className="acceptance-evidence-visual__card gms-card flex min-w-0 items-start gap-3 rounded-xl p-3"
+          >
+            <FlowStepTile compact>
+              {deckIcon(CheckCircle2, "sm")}
+            </FlowStepTile>
+            <div className="min-w-0">
+              <p className="acceptance-evidence-visual__id deck-type-premium-label text-deck-accent">
+                {id}
+              </p>
+              <p className="deck-type-card-title mt-1">{area}</p>
+              <p className="deck-type-body-compact mt-1 text-[color:var(--gms-text-muted)]">
+                {evidence}
+              </p>
+            </div>
+          </div>
+        ))}
       </div>
     </DeckVisualZone>
   );
